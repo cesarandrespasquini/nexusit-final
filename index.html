@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexusIT — Soporte Técnico Premium para tu Empresa</title>
+<meta name="description" content="Soporte IT 24/7, mesa de ayuda, ciberseguridad y mantenimiento preventivo para PyMEs. Respuesta en menos de 15 minutos.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5.0.0/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css">
+<style>
+:root {
+  --bg-primary: #0B1120;
+  --bg-secondary: #0F172A;
+  --bg-tertiary: #1E293B;
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --accent-1: #3B82F6;
+  --accent-2: #8B5CF6;
+  --accent-3: #06B6D4;
+  --gradient: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(139,92,246,0.15) 100%);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  --radius: 16px;
+}
+[data-theme="light"] {
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F1F5F9;
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+.bg-blobs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.4; animation: float 20s infinite ease-in-out; }
+.blob-1 { width: 500px; height: 500px; background: #3B82F6; top: -100px; left: -100px; }
+.blob-2 { width: 600px; height: 600px; background: #8B5CF6; top: 40%; right: -200px; animation-delay: -5s; }
+.blob-3 { width: 400px; height: 400px; background: #EC4899; bottom: -100px; left: 30%; animation-delay: -10s; }
+[data-theme="light"] .blob { opacity: 0.15; }
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(50px, -50px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
+}
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 16px 0;
+  background: rgba(11, 17, 32, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+[data-theme="light"] header { background: rgba(248, 250, 252, 0.7); }
+header.scrolled { border-bottom-color: var(--glass-border); box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--text-primary); text-decoration: none; }
+.logo-icon { width: 38px; height: 38px; background: var(--gradient); border-radius: 10px; display: grid; place-items: center; color: white; box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4); }
+nav ul { display: flex; gap: 28px; list-style: none; }
+nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; position: relative; }
+nav a:hover, nav a.active { color: var(--text-primary); }
+nav a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--gradient); transition: width 0.3s; }
+nav a:hover::after, nav a.active::after { width: 100%; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.status-pill { display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 100px; font-size: 0.82rem; color: #10B981; font-weight: 500; }
+.status-dot { width: 8px; height: 8px; background: #10B981; border-radius: 50%; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); animation: pulse 2s infinite; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+.theme-toggle { width: 40px; height: 40px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 10px; color: var(--text-primary); cursor: pointer; display: grid; place-items: center; transition: all 0.3s; }
+.theme-toggle:hover { background: var(--gradient); color: white; transform: rotate(15deg); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 100px; font-weight: 600; font-size: 0.95rem; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s ease; font-family: inherit; white-space: nowrap; }
+.btn-primary { background: var(--gradient); color: white; box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(139, 92, 246, 0.6); }
+.btn-secondary { background: var(--glass-bg); color: var(--text-primary); border: 1px solid var(--glass-border); backdrop-filter: blur(10px); }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--accent-1); }
+.mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); cursor: pointer; font-size: 1.5rem; }
+.hero { position: relative; z-index: 1; min-height: 100vh; display: flex; align-items: center; padding: 140px 0 80px; overflow: hidden; }
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%); }
+.hero-content { position: relative; text-align: center; max-width: 900px; margin: 0 auto; }
+.hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 100px; font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 28px; backdrop-filter: blur(10px); animation: fadeInUp 0.8s ease; }
+.hero-badge-dot { width: 6px; height: 6px; background: #10B981; border-radius: 50%; }
+.hero h1 { font-size: clamp(2.5rem, 6vw, 4.8rem); margin-bottom: 24px; animation: fadeInUp 0.8s ease 0.1s both; }
+.hero p { font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: var(--text-secondary); max-width: 680px; margin: 0 auto 40px; animation: fadeInUp 0.8s ease 0.2s both; }
+.hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; animation: fadeInUp 0.8s ease 0.3s both; }
+.hero-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; padding: 32px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); backdrop-filter: blur(20px); animation: fadeInUp 0.8s ease 0.4s both; }
+.hero-stat { text-align: center; }
+.hero-stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 4px; }
+.hero-stat-label { font-size: 0.88rem; color: var(--text-muted); }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.logos-bar { position: relative; z-index: 1; padding: 60px 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); overflow: hidden; }
+.logos-title { text-align: center; font-size: 0.88rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 32px; }
+.logos-track { display: flex; gap: 80px; animation: scroll-x 30s linear infinite; width: max-content; }
+.logo-item { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--text-muted); white-space: nowrap; opacity: 0.6; transition: opacity 0.3s; }
+.logo-item:hover { opacity: 1; }
+@keyframes scroll-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+section { position: relative; z-index: 1; padding: 120px 0; scroll-margin-top: 80px; }
+.section-header { text-align: center; max-width: 720px; margin: 0 auto 70px; }
+.section-eyebrow { display: inline-block; padding: 6px 14px; background: var(--gradient-soft); border: 1px solid var(--glass-border); border-radius: 100px; font-size: 0.82rem; font-weight: 600; color: var(--accent-1); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+.section-title { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 18px; }
+.section-subtitle { font-size: 1.1rem; color: var(--text-secondary); }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.service-card { position: relative; padding: 36px 32px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); backdrop-filter: blur(20px); transition: all 0.4s ease; overflow: hidden; }
+.service-card:hover { transform: translateY(-8px); border-color: transparent; box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2); }
+.service-icon { width: 56px; height: 56px; background: var(--gradient-soft); border: 1px solid var(--glass-border); border-radius: 14px; display: grid; place-items: center; color: var(--accent-1); margin-bottom: 24px; transition: all 0.3s; }
+.service-card:hover .service-icon { background: var(--gradient); color: white; transform: rotate(-8deg) scale(1.05); }
+.service-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
+.service-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px; }
+.service-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-1); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: gap 0.3s; }
+.service-link:hover { gap: 12px; }
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+.why-card { text-align: center; padding: 40px 24px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); backdrop-filter: blur(20px); }
+.why-value { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 700; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; line-height: 1; }
+.why-label { color: var(--text-secondary); font-size: 0.95rem; }
+.process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+.process-step { position: relative; padding: 32px 24px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); backdrop-filter: blur(20px); text-align: center; }
+.process-number { width: 56px; height: 56px; background: var(--gradient); border-radius: 50%; display: grid; place-items: center; color: white; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem; margin: 0 auto 20px; box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4); }
+.process-step h3 { font-size: 1.2rem; margin-bottom: 10px; }
+.process-step p { color: var(--text-secondary); font-size: 0.92rem; }
+.calculator { max-width: 800px; margin: 0 auto; padding: 48px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; backdrop-filter: blur(20px); box-shadow: var(--shadow); }
+.calc-steps { display: flex; justify-content: space-between; margin-bottom: 40px; position: relative; }
+.calc-steps::before { content: ''; position: absolute; top: 18px; left: 10%; right: 10%; height: 2px; background: var(--glass-border); z-index: 0; }
+.calc-step-indicator { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.calc-step-dot { width: 36px; height: 36px; border-radius: 50%; background: var(--bg-tertiary); border: 2px solid var(--glass-border); display: grid; place-items: center; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; transition: all 0.3s; }
+.calc-step-indicator.active .calc-step-dot { background: var(--gradient); border-color: transparent; color: white; box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2); }
+.calc-step-indicator.done .calc-step-dot { background: #10B981; border-color: transparent; color: white; }
+.calc-step-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+.calc-step-indicator.active .calc-step-label { color: var(--text-primary); }
+.calc-content { min-height: 240px; }
+.calc-question { font-size: 1.4rem; margin-bottom: 24px; text-align: center; }
+.calc-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 32px; }
+.calc-option { padding: 18px; background: var(--bg-tertiary); border: 2px solid var(--glass-border); border-radius: 12px; cursor: pointer; text-align: center; transition: all 0.2s; color: var(--text-primary); font-weight: 500; }
+.calc-option:hover { border-color: var(--accent-1); transform: translateY(-2px); }
+.calc-option.selected { background: var(--gradient-soft); border-color: var(--accent-1); }
+.calc-nav { display: flex; justify-content: space-between; gap: 12px; }
+.calc-result { text-align: center; padding: 20px; }
+.calc-result-value { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 16px 0 8px; }
+.calc-result-note { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+.pricing-toggle { display: inline-flex; align-items: center; gap: 14px; padding: 6px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 100px; margin: 0 auto 50px; backdrop-filter: blur(10px); }
+.pricing-toggle-btn { padding: 10px 22px; background: transparent; border: none; color: var(--text-secondary); cursor: pointer; border-radius: 100px; font-weight: 600; font-family: inherit; transition: all 0.3s; }
+.pricing-toggle-btn.active { background: var(--gradient); color: white; box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4); }
+.pricing-save { background: rgba(16, 185, 129, 0.15); color: #10B981; padding: 3px 10px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; margin-left: 4px; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+.pricing-card { position: relative; padding: 40px 32px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; backdrop-filter: blur(20px); transition: transform 0.3s; }
+.pricing-card:hover { transform: translateY(-6px); }
+.pricing-card.featured { background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1)); border-color: rgba(139, 92, 246, 0.4); transform: scale(1.03); box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2); }
+.pricing-card.featured:hover { transform: scale(1.03) translateY(-6px); }
+.pricing-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 6px 16px; background: var(--gradient); color: white; border-radius: 100px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.pricing-name { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 12px; }
+.pricing-price { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; margin-bottom: 4px; }
+.pricing-price span { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
+.pricing-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--glass-border); }
+.pricing-features { list-style: none; margin-bottom: 32px; }
+.pricing-features li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; font-size: 0.93rem; color: var(--text-secondary); }
+.pricing-features svg { flex-shrink: 0; color: #10B981; margin-top: 2px; }
+.pricing-card .btn { width: 100%; justify-content: center; }
+.testimonials-wrap { position: relative; overflow: hidden; padding: 20px 0; }
+.testimonials-track { display: flex; gap: 24px; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.testimonial { flex: 0 0 calc(33.333% - 16px); padding: 32px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); backdrop-filter: blur(20px); }
+.testimonial-stars { display: flex; gap: 4px; color: #FBBF24; margin-bottom: 16px; }
+.testimonial-text { color: var(--text-secondary); font-size: 0.98rem; margin-bottom: 24px; font-style: italic; line-height: 1.7; }
+.testimonial-author { display: flex; align-items: center; gap: 14px; }
+.testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--gradient); display: grid; place-items: center; color: white; font-weight: 700; font-family: 'Space Grotesk', sans-serif; }
+.testimonial-name { font-weight: 600; margin-bottom: 2px; }
+.testimonial-role { font-size: 0.85rem; color: var(--text-muted); }
+.testimonials-controls { display: flex; justify-content: center; gap: 12px; margin-top: 40px; }
+.testimonial-btn { width: 44px; height: 44px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 50%; color: var(--text-primary); cursor: pointer; display: grid; place-items: center; transition: all 0.3s; }
+.testimonial-btn:hover { background: var(--gradient); color: white; border-color: transparent; }
+.cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.case-card { padding: 36px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); backdrop-filter: blur(20px); }
+.case-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.case-tag { padding: 4px 12px; background: rgba(16, 185, 129, 0.15); color: #10B981; border-radius: 100px; font-size: 0.78rem; font-weight: 600; }
+.case-title { font-size: 1.2rem; margin-bottom: 12px; }
+.case-desc { color: var(--text-secondary); font-size: 0.93rem; margin-bottom: 24px; }
+.case-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 24px; border-top: 1px solid var(--glass-border); }
+.case-metric-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--accent-1); }
+.case-metric-label { font-size: 0.78rem; color: var(--text-muted); }
+.faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 14px; backdrop-filter: blur(20px); overflow: hidden; transition: border-color 0.3s; }
+.faq-item.open { border-color: rgba(139, 92, 246, 0.4); }
+.faq-question { width: 100%; padding: 22px 28px; background: none; border: none; color: var(--text-primary); font-size: 1.05rem; font-weight: 600; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: inherit; }
+.faq-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--gradient-soft); display: grid; place-items: center; color: var(--accent-1); transition: transform 0.3s; flex-shrink: 0; }
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--gradient); color: white; }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.faq-answer-inner { padding: 0 28px 24px; color: var(--text-secondary); line-height: 1.7; }
+.cta-final { position: relative; z-index: 1; padding: 100px 0; }
+.cta-final-box { position: relative; padding: 80px 40px; background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.15)); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 32px; text-align: center; overflow: hidden; backdrop-filter: blur(20px); }
+.cta-final-box::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 50%); animation: rotate 20s linear infinite; }
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.cta-final-content { position: relative; z-index: 1; }
+.cta-final h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 18px; }
+.cta-final p { font-size: 1.15rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 36px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; max-width: 1100px; margin: 0 auto; }
+.contact-info h3 { font-size: 1.8rem; margin-bottom: 16px; }
+.contact-info > p { color: var(--text-secondary); margin-bottom: 32px; }
+.contact-methods { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+.contact-method { display: flex; align-items: center; gap: 16px; padding: 18px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 14px; backdrop-filter: blur(20px); transition: all 0.3s; text-decoration: none; color: inherit; }
+.contact-method:hover { border-color: var(--accent-1); transform: translateX(4px); }
+.contact-method-icon { width: 44px; height: 44px; background: var(--gradient-soft); border-radius: 12px; display: grid; place-items: center; color: var(--accent-1); flex-shrink: 0; }
+.contact-method-label { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 2px; }
+.contact-method-value { font-weight: 600; }
+.contact-form { padding: 40px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; backdrop-filter: blur(20px); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 0.88rem; font-weight: 500; margin-bottom: 8px; color: var(--text-secondary); }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; background: var(--bg-tertiary); border: 1px solid var(--glass-border); border-radius: 10px; color: var(--text-primary); font-family: inherit; font-size: 0.95rem; transition: all 0.3s; }
+[data-theme="light"] .form-group input, [data-theme="light"] .form-group select, [data-theme="light"] .form-group textarea { background: white; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-1); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-submit { width: 100%; justify-content: center; padding: 16px; font-size: 1rem; }
+.form-success { display: none; text-align: center; padding: 40px 20px; }
+.form-success.show { display: block; }
+.form-success-icon { width: 80px; height: 80px; margin: 0 auto 20px; background: var(--gradient); border-radius: 50%; display: grid; place-items: center; color: white; animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+@keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+footer { position: relative; z-index: 1; padding: 80px 0 30px; border-top: 1px solid var(--glass-border); background: var(--bg-secondary); }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 48px; margin-bottom: 60px; }
+.footer-brand p { color: var(--text-secondary); margin: 20px 0; font-size: 0.95rem; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { width: 40px; height: 40px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 10px; display: grid; place-items: center; color: var(--text-secondary); transition: all 0.3s; text-decoration: none; }
+.footer-social a:hover { background: var(--gradient); color: white; border-color: transparent; transform: translateY(-3px); }
+.footer-col h4 { font-size: 1rem; margin-bottom: 20px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col a { color: var(--text-secondary); text-decoration: none; font-size: 0.92rem; transition: color 0.2s; }
+.footer-col a:hover { color: var(--accent-1); }
+.newsletter-form { display: flex; gap: 8px; margin-top: 16px; }
+.newsletter-form input { flex: 1; padding: 12px 16px; background: var(--bg-tertiary); border: 1px solid var(--glass-border); border-radius: 10px; color: var(--text-primary); font-family: inherit; }
+[data-theme="light"] .newsletter-form input { background: white; }
+.newsletter-form button { padding: 12px 20px; background: var(--gradient); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; font-family: inherit; }
+.footer-bottom { padding-top: 30px; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; color: var(--text-muted); font-size: 0.88rem; }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { color: var(--text-muted); text-decoration: none; }
+.footer-legal a:hover { color: var(--text-primary); }
+.floating-whatsapp { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: grid; place-items: center; color: white; text-decoration: none; box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4); z-index: 999; transition: all 0.3s; animation: pulseWA 2s infinite; }
+.floating-whatsapp:hover { transform: scale(1.1); }
+@keyframes pulseWA {
+  0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0); }
+}
+.floating-top { position: fixed; bottom: 100px; right: 30px; width: 48px; height: 48px; background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(20px); border-radius: 50%; display: grid; place-items: center; color: var(--text-primary); cursor: pointer; z-index: 998; opacity: 0; pointer-events: none; transition: all 0.3s; }
+.floating-top.show { opacity: 1; pointer-events: auto; }
+.floating-top:hover { background: var(--gradient); color: white; border-color: transparent; }
+.floating-download { position: fixed; bottom: 170px; right: 30px; width: 48px; height: 48px; background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(20px); border-radius: 50%; display: grid; place-items: center; color: var(--text-primary); cursor: pointer; z-index: 998; transition: all 0.3s; text-decoration: none; }
+.floating-download:hover { background: var(--gradient); color: white; border-color: transparent; transform: translateY(-3px); }
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 968px) {
+  nav ul { display: none; }
+  .mobile-toggle { display: block; }
+  .status-pill { display: none; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .testimonial { flex: 0 0 calc(50% - 12px); }
+  .pricing-card.featured { transform: scale(1); }
+  .pricing-card.featured:hover { transform: translateY(-6px); }
+}
+@media (max-width: 640px) {
+  section { padding: 80px 0; }
+  .hero { padding: 120px 0 60px; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .testimonial { flex: 0 0 100%; }
+  .calculator { padding: 28px 20px; }
+  .calc-step-label { display: none; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+}
+.mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--glass-border); padding: 20px; z-index: 999; }
+.mobile-menu.show { display: block; }
+.mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.mobile-menu a { color: var(--text-primary); text-decoration: none; font-weight: 500; padding: 8px 0; display: block; }
+/* Header más grande y centrado */
+header {
+  padding: 20px 0 !important;
+}
+
+.nav-wrap {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 40px !important;
+  justify-content: center !important;
+  gap: 40px !important;
+}
+
+nav ul {
+  flex: 1 !important;
+  justify-content: center !important;
+  gap: 36px !important;
+}
+
+nav a {
+  font-size: 1.05rem !important;
+  padding: 8px 4px !important;
+}
+
+.logo {
+  margin-right: auto;
+}
+
+.nav-right {
+  margin-left: auto;
+}
+</style>
+</head>
+<body>
+
+<div class="bg-blobs">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<header id="header">
+  <div class="container nav-wrap">
+    <a href="#inicio" class="logo">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      Nexus<span class="gradient-text">IT</span>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="index.html">IT Support</a></li>
+        <li><a href="automatizacion-phyton.html">Automatización Python</a></li>
+        <li><a href="ia-empresas.html">IA para Empresas</a></li>
+        <li><a href="ecosistema-digital.html">Ecosistema Digital</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        Sistema operativo
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+        <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+      <a href="#cotizacion" class="btn btn-primary" style="padding: 10px 18px; font-size: 0.88rem;">Diagnóstico gratis</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#planes">Planes</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#cotizacion">Cotización</a></li>
+  </ul>
+</div>
+
+<section class="hero" id="inicio">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Soporte IT 24/7 · Respuesta en menos de 15 minutos
+      </div>
+      <h1>Soporte IT que <span class="gradient-text">resuelve antes</span> de que te des cuenta</h1>
+      <p>Tu empresa nunca se detiene. Nosotros tampoco. Mesa de ayuda, ciberseguridad, mantenimiento preventivo y soporte remoto para que tu tecnología trabaje para vos, no al revés.</p>
+      <div class="hero-ctas">
+        <a href="#cotizacion" class="btn btn-primary">
+          Quiero mi cotización
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#como-funciona" class="btn btn-secondary">Ver cómo funciona</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value" data-count="500">0</div>
+          <div class="hero-stat-label">Empresas confían en nosotros</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value"><span data-count="12">0</span> min</div>
+          <div class="hero-stat-label">Tiempo de respuesta promedio</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value"><span data-count="98">0</span>%</div>
+          <div class="hero-stat-label">Satisfacción de clientes</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">24/7</div>
+          <div class="hero-stat-label">Soporte disponible</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="logos-bar" style="padding: 60px 0;">
+  <div class="container">
+    <div class="logos-title">Empresas que confían en nosotros · Certificaciones</div>
+  </div>
+  <div class="logos-track">
+    <div class="logo-item">Microsoft Partner</div>
+    <div class="logo-item">ISO 27001</div>
+    <div class="logo-item">AWS Certified</div>
+    <div class="logo-item">Google Cloud</div>
+    <div class="logo-item">Cisco Premier</div>
+    <div class="logo-item">Fortinet Gold</div>
+    <div class="logo-item">VMware Partner</div>
+    <div class="logo-item">CompTIA</div>
+    <div class="logo-item">Microsoft Partner</div>
+    <div class="logo-item">ISO 27001</div>
+    <div class="logo-item">AWS Certified</div>
+    <div class="logo-item">Google Cloud</div>
+    <div class="logo-item">Cisco Premier</div>
+    <div class="logo-item">Fortinet Gold</div>
+    <div class="logo-item">VMware Partner</div>
+    <div class="logo-item">CompTIA</div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Servicios</span>
+      <h2 class="section-title">Todo lo que tu empresa necesita, <span class="gradient-text">en un solo lugar</span></h2>
+      <p class="section-subtitle">Soluciones integrales de IT diseñadas para que te enfoques en tu negocio mientras nosotros nos encargamos de la tecnología.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Soporte remoto 24/7</h3>
+        <p>Resolución inmediata de incidentes desde cualquier lugar. Técnicos certificados disponibles las 24 horas, los 365 días del año.</p>
+        <a href="#contacto" class="service-link">Conocer más →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Mesa de ayuda (Help Desk)</h3>
+        <p>Un único punto de contacto para todos los pedidos y consultas. Ticketeo inteligente, priorización automática y seguimiento en tiempo real.</p>
+        <a href="#contacto" class="service-link">Conocer más →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Mantenimiento preventivo</h3>
+        <p>Revisamos, actualizamos y optimizamos tus equipos antes de que fallen. Reducimos los tiempos muertos hasta un 80%.</p>
+        <a href="#contacto" class="service-link">Conocer más →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Ciberseguridad y backups</h3>
+        <p>Protegé tu información con firewalls de última generación, backups automáticos en la nube y monitoreo 24/7 contra amenazas.</p>
+        <a href="#contacto" class="service-link">Conocer más →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+        </div>
+        <h3>Soporte on-site</h3>
+        <p>Cuando hace falta presencia física, vamos a tu oficina. Técnicos especializados con respuesta en el día en AMBA y 24-48hs en el interior.</p>
+        <a href="#contacto" class="service-link">Conocer más →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+        </div>
+        <h3>Cloud y redes</h3>
+        <p>Migración a la nube, configuración de redes corporativas, Wi-Fi empresarial y conectividad segura para todas tus sedes.</p>
+        <a href="#contacto" class="service-link">Conocer más →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Por qué elegirnos</span>
+      <h2 class="section-title">Números que <span class="gradient-text">hablan por sí solos</span></h2>
+      <p class="section-subtitle">Más de una década resolviendo los problemas de IT de PyMEs y empresas que no pueden darse el lujo de detenerse.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-value"><span data-count="12">0</span>'</div>
+        <div class="why-label">Tiempo de respuesta promedio</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-value"><span data-count="98">0</span>%</div>
+        <div class="why-label">Clientes satisfechos</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-value"><span data-count="15">0</span>+</div>
+        <div class="why-label">Años de trayectoria</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-value"><span data-count="40">0</span>+</div>
+        <div class="why-label">Técnicos certificados</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Proceso</span>
+      <h2 class="section-title">Empezar es <span class="gradient-text">muy simple</span></h2>
+      <p class="section-subtitle">En 4 pasos te dejamos la tecnología funcionando como tiene que funcionar.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-number">1</div>
+        <h3>Contactanos</h3>
+        <p>Escribinos por WhatsApp, completá el formulario o llamanos. Te respondemos en menos de 15 minutos.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-number">2</div>
+        <h3>Diagnóstico gratuito</h3>
+        <p>Analizamos tu infraestructura actual, detectamos problemas y oportunidades de mejora sin costo.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-number">3</div>
+        <h3>Plan a medida</h3>
+        <p>Armamos un plan de acción con precios transparentes, plazos claros y métricas de éxito.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-number">4</div>
+        <h3>Soporte continuo</h3>
+        <p>Implementamos, monitoreamos y mejoramos constantemente. Vos te enfocás en tu negocio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cotizacion">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Cotizador instantáneo</span>
+      <h2 class="section-title">Calculá tu plan en <span class="gradient-text">menos de 1 minuto</span></h2>
+      <p class="section-subtitle">Respondé 4 preguntas y te damos un precio estimado al instante. Sin vueltas, sin compromisos.</p>
+    </div>
+    <div class="calculator reveal">
+      <div class="calc-steps">
+        <div class="calc-step-indicator active" data-step="1">
+          <div class="calc-step-dot">1</div>
+          <div class="calc-step-label">Equipos</div>
+        </div>
+        <div class="calc-step-indicator" data-step="2">
+          <div class="calc-step-dot">2</div>
+          <div class="calc-step-label">Servicios</div>
+        </div>
+        <div class="calc-step-indicator" data-step="3">
+          <div class="calc-step-dot">3</div>
+          <div class="calc-step-label">Urgencia</div>
+        </div>
+        <div class="calc-step-indicator" data-step="4">
+          <div class="calc-step-dot">4</div>
+          <div class="calc-step-label">Resultado</div>
+        </div>
+      </div>
+      <div class="calc-content" id="calcContent"></div>
+      <div class="calc-nav">
+        <button class="btn btn-secondary" id="calcPrev" disabled>← Atrás</button>
+        <button class="btn btn-primary" id="calcNext">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="planes">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Planes</span>
+      <h2 class="section-title">Elegí el plan que <span class="gradient-text">mejor se adapta a tu empresa</span></h2>
+      <p class="section-subtitle">Precios transparentes, sin letra chica. Todos los planes incluyen soporte 24/7 y técnico asignado.</p>
+    </div>
+    <div style="text-align: center;">
+      <div class="pricing-toggle">
+        <button class="pricing-toggle-btn active" data-period="monthly">Mensual</button>
+        <button class="pricing-toggle-btn" data-period="yearly">Anual <span class="pricing-save">-20%</span></button>
+      </div>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-name">Básico</div>
+        <div class="pricing-price">$<span class="price-value" data-monthly="89000" data-yearly="71200">89.000</span><span>/mes</span></div>
+        <div class="pricing-desc">Ideal para empresas pequeñas que recién empiezan a profesionalizar su IT.</div>
+        <ul class="pricing-features">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Hasta 10 equipos</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Soporte remoto en horario laboral</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Mesa de ayuda por email</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Mantenimiento preventivo mensual</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Backup básico en la nube</li>
+        </ul>
+        <a href="#contacto" class="btn btn-secondary">Elegir Básico</a>
+      </div>
+      <div class="pricing-card featured reveal">
+        <div class="pricing-badge">Más elegido</div>
+        <div class="pricing-name">Profesional</div>
+        <div class="pricing-price">$<span class="price-value" data-monthly="189000" data-yearly="151200">189.000</span><span>/mes</span></div>
+        <div class="pricing-desc">Para PyMEs que necesitan soporte completo y no pueden permitirse tiempos muertos.</div>
+        <ul class="pricing-features">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Hasta 50 equipos</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Soporte remoto 24/7</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Mesa de ayuda por WhatsApp + teléfono</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Mantenimiento preventivo semanal</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Backup avanzado + recuperación ante desastres</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Monitoreo de ciberseguridad</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>2 visitas on-site por mes</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary">Elegir Profesional</a>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-name">Empresarial</div>
+        <div class="pricing-price">$<span class="price-value" data-monthly="389000" data-yearly="311200">389.000</span><span>/mes</span></div>
+        <div class="pricing-desc">Para empresas con operaciones críticas que necesitan SLA garantizado y soporte dedicado.</div>
+        <ul class="pricing-features">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Equipos ilimitados</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Soporte 24/7 con SLA de 15 minutos</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Técnico dedicado asignado</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Ciberseguridad avanzada + SOC</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Visitas on-site ilimitadas</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Consultoría estratégica mensual</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Reportes ejecutivos</li>
+        </ul>
+        <a href="#contacto" class="btn btn-secondary">Elegir Empresarial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonios">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Testimonios</span>
+      <h2 class="section-title">Lo que dicen <span class="gradient-text">nuestros clientes</span></h2>
+      <p class="section-subtitle">Empresas reales que transformaron su forma de trabajar con la tecnología.</p>
+    </div>
+    <div class="testimonials-wrap">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Desde que trabajamos con NexusIT dejamos de perder plata por problemas técnicos. Responden en minutos y siempre encuentran una solución."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <div class="testimonial-name">Martín Rodríguez</div>
+              <div class="testimonial-role">CEO · Logística Sur SA</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Lo que más valoro es la proactividad. Nos avisan antes de que surja el problema. Pasamos de 20 incidentes por mes a menos de 3."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">LF</div>
+            <div>
+              <div class="testimonial-name">Laura Fernández</div>
+              <div class="testimonial-role">Gerente de Operaciones · Clínica Norte</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Probamos tres proveedores antes de dar con NexusIT. La diferencia es abismal: son rápidos, claros con los precios y entienden el negocio."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DG</div>
+            <div>
+              <div class="testimonial-name">Diego Gómez</div>
+              <div class="testimonial-role">Director · Estudio Contable Gómez</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Nos migraron toda la infraestructura a la nube en un fin de semana sin cortar la operación. Profesionales de verdad."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SC</div>
+            <div>
+              <div class="testimonial-name">Sofía Castillo</div>
+              <div class="testimonial-role">CTO · E-commerce Platense</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"El dashboard que nos armaron para ver el estado de todos los equipos en tiempo real es una genialidad. Control total."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JP</div>
+            <div>
+              <div class="testimonial-name">Juan Pablo Méndez</div>
+              <div class="testimonial-role">Fundador · Red de Farmacias Del Sol</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Después del ataque de ransomware, NexusIT nos armó un esquema de seguridad blindado. Dormimos tranquilos por primera vez."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">CV</div>
+            <div>
+              <div class="testimonial-name">Carolina Vega</div>
+              <div class="testimonial-role">Directora Financiera · Importadora del Litoral</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonials-controls">
+      <button class="testimonial-btn" id="testPrev" aria-label="Anterior">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="testimonial-btn" id="testNext" aria-label="Siguiente">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Casos de éxito</span>
+      <h2 class="section-title">Resultados <span class="gradient-text">reales y medibles</span></h2>
+      <p class="section-subtitle">Así ayudamos a empresas como la tuya a transformar su tecnología en una ventaja competitiva.</p>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card reveal">
+        <div class="case-header">
+          <h3 class="case-title">Clínica Norte</h3>
+          <span class="case-tag">Salud</span>
+        </div>
+        <p class="case-desc">Migración completa de 80 equipos a la nube y rediseño de la red interna. Cero interrupciones.</p>
+        <div class="case-metrics">
+          <div><div class="case-metric-value">-85%</div><div class="case-metric-label">Incidentes</div></div>
+          <div><div class="case-metric-value">3x</div><div class="case-metric-label">Velocidad</div></div>
+          <div><div class="case-metric-value">$2M</div><div class="case-metric-label">Ahorro/año</div></div>
+        </div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-header">
+          <h3 class="case-title">Farmacias Del Sol</h3>
+          <span class="case-tag">Retail</span>
+        </div>
+        <p class="case-desc">Sistema unificado de monitoreo para 25 sucursales con alertas en tiempo real.</p>
+        <div class="case-metrics">
+          <div><div class="case-metric-value">25</div><div class="case-metric-label">Sucursales</div></div>
+          <div><div class="case-metric-value">99.9%</div><div class="case-metric-label">Uptime</div></div>
+          <div><div class="case-metric-value">12'</div><div class="case-metric-label">Respuesta</div></div>
+        </div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-header">
+          <h3 class="case-title">Importadora del Litoral</h3>
+          <span class="case-tag">Logística</span>
+        </div>
+        <p class="case-desc">Recuperación tras ransomware + implementación de ciberseguridad enterprise.</p>
+        <div class="case-metrics">
+          <div><div class="case-metric-value">4hs</div><div class="case-metric-label">Recuperación</div></div>
+          <div><div class="case-metric-value">100%</div><div class="case-metric-label">Datos salvados</div></div>
+          <div><div class="case-metric-value">0</div><div class="case-metric-label">Incidentes post</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Preguntas frecuentes</span>
+      <h2 class="section-title">Resolvemos tus <span class="gradient-text">dudas más comunes</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿En cuánto tiempo responden un ticket urgente?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Nuestro tiempo promedio de primera respuesta es de 12 minutos en horario laboral y de 20 minutos fuera de horario. Para clientes del plan Empresarial, el SLA garantizado es de 15 minutos 24/7.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Trabajan solo en CABA o también en el interior?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Tenemos cobertura nacional. El soporte remoto es igual de efectivo en cualquier lugar. Para visitas on-site, cubrimos AMBA en el día y el resto del país en 24-48 horas hábiles.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Puedo cambiar de plan en cualquier momento?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Sí, podés subir o bajar de plan cuando quieras. Si subís, se prorratea la diferencia. Si bajás, el cambio aplica para el próximo ciclo de facturación.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Qué pasa si tengo una emergencia fuera de horario?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Los planes Profesional y Empresarial incluyen soporte 24/7 sin costo adicional. Para el plan Básico, las emergencias fuera de horario tienen un cargo extra.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Cómo garantizan la seguridad de nuestra información?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Estamos certificados ISO 27001, firmamos NDA con cada cliente, usamos cifrado de extremo a extremo y hacemos auditorías de seguridad trimestrales.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Tienen permanencia mínima en los contratos?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Trabajamos mes a mes. Si no estás conforme, podés cancelar cuando quieras con 30 días de preaviso.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-final-box reveal">
+      <div class="cta-final-content">
+        <h2>Tu empresa no puede darse el lujo de <span class="gradient-text">detenerse</span></h2>
+        <p>Agendá un diagnóstico gratuito de 30 minutos y descubrí cómo podemos ayudarte.</p>
+        <a href="#contacto" class="btn btn-primary" style="padding: 16px 32px; font-size: 1.05rem;">
+          Solicitar diagnóstico gratis
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Contacto</span>
+      <h2 class="section-title">Hablemos de <span class="gradient-text">tu empresa</span></h2>
+      <p class="section-subtitle">Completá el formulario o escribinos directamente. Te respondemos en menos de 15 minutos.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Estamos para ayudarte</h3>
+        <p>Elegí el canal que más te convenga. Nuestro equipo está disponible para resolver cualquier consulta.</p>
+        <div class="contact-methods">
+          <a href="https://wa.me/5491100000000" class="contact-method">
+            <div class="contact-method-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <div class="contact-method-label">WhatsApp</div>
+              <div class="contact-method-value">+54 9 11 0000-0000</div>
+            </div>
+          </a>
+          <a href="mailto:hola@nexusit.com.ar" class="contact-method">
+            <div class="contact-method-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-method-label">Email</div>
+              <div class="contact-method-value">hola@nexusit.com.ar</div>
+            </div>
+          </a>
+          <a href="tel:+541100000000" class="contact-method">
+            <div class="contact-method-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-method-label">Teléfono</div>
+              <div class="contact-method-value">+54 11 0000-0000</div>
+            </div>
+          </a>
+          <div class="contact-method">
+            <div class="contact-method-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-method-label">Horarios</div>
+              <div class="contact-method-value">Lun a Vie · 9 a 18hs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form reveal" id="contactForm">
+        <div class="form-fields" id="formFields">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" required placeholder="Juan Pérez">
+            </div>
+            <div class="form-group">
+              <label for="empresa">Empresa</label>
+              <input type="text" id="empresa" placeholder="Mi empresa SA">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required placeholder="juan@empresa.com">
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" placeholder="+54 9 11...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="consulta">Tipo de consulta</label>
+            <select id="consulta" required>
+              <option value="">Seleccioná una opción</option>
+              <option>Quiero una cotización</option>
+              <option>Diagnóstico gratuito</option>
+              <option>Soporte técnico</option>
+              <option>Consulta sobre planes</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" required placeholder="Contanos en qué podemos ayudarte..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">
+            Enviar consulta
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 style="margin-bottom: 10px;">¡Mensaje enviado!</h3>
+          <p style="color: var(--text-secondary);">Te respondemos en menos de 15 minutos.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="logo">
+          <div class="logo-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          Nexus<span class="gradient-text">IT</span>
+        </a>
+        <p>Soporte técnico premium para empresas que no pueden detenerse. Más de 15 años resolviendo los problemas de IT de PyMEs en toda Argentina.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Soporte remoto</a></li>
+          <li><a href="#servicios">Mesa de ayuda</a></li>
+          <li><a href="#servicios">Mantenimiento</a></li>
+          <li><a href="#servicios">Ciberseguridad</a></li>
+          <li><a href="#servicios">Cloud y redes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#nosotros">Sobre nosotros</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 12px;">Tips de IT, novedades y ofertas exclusivas una vez por mes.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('¡Suscripto!');">
+          <input type="email" placeholder="tu@email.com" required>
+          <button type="submit">OK</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 NexusIT · Todos los derechos reservados</div>
+      <div class="footer-legal">
+        <a href="#">Términos y condiciones</a>
+        <a href="#">Política de privacidad</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5491100000000?text=Hola!%20Quisiera%20consultar%20por%20los%20servicios%20de%20NexusIT" class="floating-whatsapp" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<button class="floating-top" id="floatingTop" aria-label="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<a href="#" class="floating-download" id="downloadBtn" aria-label="Descargar página" title="Descargar esta página">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+</a>
+
+<script>
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const html = document.documentElement;
+const sunIcon = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+const moonIcon = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+themeToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  themeIcon.innerHTML = next === 'dark' ? sunIcon : moonIcon;
+});
+const header = document.getElementById('header');
+const floatingTop = document.getElementById('floatingTop');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  header.classList.toggle('scrolled', y > 50);
+  floatingTop.classList.toggle('show', y > 600);
+});
+floatingTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+mobileToggle.addEventListener('click', () => mobileMenu.classList.toggle('show'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('show')));
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      if (entry.target.querySelector('[data-count]') || entry.target.hasAttribute('data-count')) {
+        animateCounters(entry.target);
+      }
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+function animateCounters(container) {
+  const counters = container.querySelectorAll('[data-count]');
+  counters.forEach(counter => {
+    if (counter.dataset.animated) return;
+    counter.dataset.animated = 'true';
+    const target = parseInt(counter.dataset.count);
+    const duration = 2000;
+    const start = performance.now();
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      counter.textContent = Math.floor(target * eased);
+      if (progress < 1) requestAnimationFrame(update);
+      else counter.textContent = target;
+    }
+    requestAnimationFrame(update);
+  });
+}
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-answer').style.maxHeight = null;
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+const track = document.getElementById('testimonialsTrack');
+let testIndex = 0;
+const testPrev = document.getElementById('testPrev');
+const testNext = document.getElementById('testNext');
+function getVisible() {
+  if (window.innerWidth < 640) return 1;
+  if (window.innerWidth < 968) return 2;
+  return 3;
+}
+function updateTestimonials() {
+  const cards = track.children;
+  const visible = getVisible();
+  const maxIndex = cards.length - visible;
+  if (testIndex > maxIndex) testIndex = 0;
+  if (testIndex < 0) testIndex = maxIndex;
+  const cardWidth = cards[0].offsetWidth + 24;
+  track.style.transform = `translateX(-${testIndex * cardWidth}px)`;
+}
+testNext.addEventListener('click', () => { testIndex++; updateTestimonials(); });
+testPrev.addEventListener('click', () => { testIndex--; updateTestimonials(); });
+window.addEventListener('resize', updateTestimonials);
+let autoScroll = setInterval(() => { testIndex++; updateTestimonials(); }, 5000);
+track.addEventListener('mouseenter', () => clearInterval(autoScroll));
+track.addEventListener('mouseleave', () => {
+  autoScroll = setInterval(() => { testIndex++; updateTestimonials(); }, 5000);
+});
+document.querySelectorAll('.pricing-toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.pricing-toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const period = btn.dataset.period;
+    document.querySelectorAll('.price-value').forEach(p => {
+      const value = parseInt(p.dataset[period]);
+      p.textContent = value.toLocaleString('es-AR');
+    });
+  });
+});
+const calcSteps = [
+  { question: '¿Cuántos equipos tenés en tu empresa?', field: 'equipos', options: [{ label: '1 a 10', value: 10 }, { label: '11 a 30', value: 30 }, { label: '31 a 75', value: 75 }, { label: '76 a 150', value: 150 }, { label: 'Más de 150', value: 300 }] },
+  { question: '¿Qué servicios necesitás?', field: 'servicios', multiple: true, options: [{ label: '🖥️ Soporte remoto', value: 40000 }, { label: '🛡️ Ciberseguridad', value: 35000 }, { label: '☁️ Cloud / Backups', value: 25000 }, { label: '🔧 Mantenimiento', value: 20000 }, { label: '📞 Mesa de ayuda', value: 30000 }] },
+  { question: '¿Qué nivel de urgencia tenés?', field: 'urgencia', options: [{ label: 'Baja (horario laboral)', value: 1 }, { label: 'Media (extendido)', value: 1.3 }, { label: 'Alta (24/7)', value: 1.6 }] }
+];
+let currentStep = 1;
+let calcData = {};
+const calcContent = document.getElementById('calcContent');
+const calcPrev = document.getElementById('calcPrev');
+const calcNext = document.getElementById('calcNext');
+function renderStep(step) {
+  document.querySelectorAll('.calc-step-indicator').forEach(ind => {
+    const s = parseInt(ind.dataset.step);
+    ind.classList.remove('active', 'done');
+    if (s < step) ind.classList.add('done');
+    if (s === step) ind.classList.add('active');
+  });
+  if (step <= 3) {
+    const data = calcSteps[step - 1];
+    calcContent.innerHTML = `<h3 class="calc-question">${data.question}</h3><div class="calc-options" data-field="${data.field}" data-multiple="${data.multiple || false}">${data.options.map(opt => `<div class="calc-option" data-value="${opt.value}">${opt.label}</div>`).join('')}</div>`;
+    calcContent.querySelectorAll('.calc-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        if (data.multiple) {
+          opt.classList.toggle('selected');
+          const selected = Array.from(calcContent.querySelectorAll('.calc-option.selected')).map(o => parseFloat(o.dataset.value));
+          calcData[data.field] = selected;
+        } else {
+          calcContent.querySelectorAll('.calc-option').forEach(o => o.classList.remove('selected'));
+          opt.classList.add('selected');
+          calcData[data.field] = parseFloat(opt.dataset.value);
+        }
+      });
+    });
+    calcPrev.disabled = step === 1;
+    calcNext.textContent = step === 3 ? 'Ver resultado →' : 'Siguiente →';
+  } else {
+    const equipos = calcData.equipos || 10;
+    const servicios = Array.isArray(calcData.servicios) ? calcData.servicios.reduce((a,b) => a+b, 0) : 0;
+    const urgencia = calcData.urgencia || 1;
+    const base = 45000;
+    const perEquipo = equipos * 1800;
+    const total = Math.round((base + perEquipo + servicios) * urgencia);
+    const min = Math.round(total * 0.9);
+    const max = Math.round(total * 1.15);
+    calcContent.innerHTML = `<div class="calc-result"><div style="font-size: 0.95rem; color: var(--text-muted);">Estimación mensual para tu empresa</div><div class="calc-result-value">$${min.toLocaleString('es-AR')} - $${max.toLocaleString('es-AR')}</div><div class="calc-result-note">Precio estimado según ${equipos} equipos, servicios seleccionados y nivel de urgencia.</div><a href="#contacto" class="btn btn-primary">Quiero este plan →</a></div>`;
+    calcNext.style.display = 'none';
+    calcPrev.textContent = '← Volver';
+  }
+}
+calcNext.addEventListener('click', () => { if (currentStep < 4) { currentStep++; renderStep(currentStep); } });
+calcPrev.addEventListener('click', () => { if (currentStep > 1) { currentStep--; renderStep(currentStep); if (currentStep < 4) { calcNext.style.display = ''; calcPrev.textContent = '← Atrás'; } } });
+renderStep(1);
+const contactForm = document.getElementById('contactForm');
+const formFields = document.getElementById('formFields');
+const formSuccess = document.getElementById('formSuccess');
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  formFields.style.display = 'none';
+  formSuccess.classList.add('show');
+  setTimeout(() => { formFields.style.display = ''; formSuccess.classList.remove('show'); contactForm.reset(); }, 5000);
+});
+document.getElementById('downloadBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'NexusIT-Sitio-Web.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) { current = section.getAttribute('id'); }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) { link.classList.add('active'); }
+  });
+});
+</script>
+
+</body>
+</html>

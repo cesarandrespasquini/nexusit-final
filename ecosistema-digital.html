@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecosistema Digital - NexusIT</title>
+<meta name="description" content="Tres soluciones integradas para tu transformación digital: IT Support, Automatización Python e IA. Paquetes combinados con descuentos exclusivos.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5.0.0/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css">
+<style>
+:root {
+  --bg-primary: #0B1120;
+  --bg-secondary: #0F172A;
+  --bg-tertiary: #1E293B;
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --eco-gold: #F59E0B;
+  --eco-amber: #FBBF24;
+  --gradient: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #F59E0B 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(245,158,11,0.15) 100%);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  --radius: 16px;
+}
+[data-theme="light"] {
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F1F5F9;
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+.bg-blobs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.4; animation: float 20s infinite ease-in-out; }
+.blob-1 { width: 500px; height: 500px; background: #3B82F6; top: -100px; left: -100px; }
+.blob-2 { width: 600px; height: 600px; background: #8B5CF6; top: 40%; right: -200px; animation-delay: -5s; }
+.blob-3 { width: 400px; height: 400px; background: #F59E0B; bottom: -100px; left: 30%; animation-delay: -10s; }
+[data-theme="light"] .blob { opacity: 0.15; }
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(50px, -50px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
+}
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 16px 0;
+  background: rgba(11, 17, 32, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+[data-theme="light"] header { background: rgba(248, 250, 252, 0.7); }
+header.scrolled { border-bottom-color: var(--glass-border); box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--text-primary); text-decoration: none; }
+.logo-icon { width: 38px; height: 38px; background: var(--gradient); border-radius: 10px; display: grid; place-items: center; color: white; box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4); }
+nav ul { display: flex; gap: 24px; list-style: none; }
+nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; position: relative; }
+nav a:hover, nav a.active { color: var(--text-primary); }
+nav a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--gradient); transition: width 0.3s; }
+nav a:hover::after, nav a.active::after { width: 100%; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.status-pill { display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 100px; font-size: 0.82rem; color: #10B981; font-weight: 500; }
+.status-dot { width: 8px; height: 8px; background: #10B981; border-radius: 50%; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); animation: pulse 2s infinite; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+.theme-toggle { width: 40px; height: 40px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 10px; color: var(--text-primary); cursor: pointer; display: grid; place-items: center; transition: all 0.3s; }
+.theme-toggle:hover { background: var(--gradient); color: white; transform: rotate(15deg); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 100px; font-weight: 600; font-size: 0.95rem; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s ease; font-family: inherit; white-space: nowrap; }
+.btn-primary { background: var(--gradient); color: white; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(245, 158, 11, 0.6); }
+.btn-secondary { background: var(--glass-bg); color: var(--text-primary); border: 1px solid var(--glass-border); backdrop-filter: blur(10px); }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--eco-gold); }
+.mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); cursor: pointer; font-size: 1.5rem; }
+.hero { position: relative; z-index: 1; min-height: 100vh; display: flex; align-items: center; padding: 140px 0 80px; overflow: hidden; }
+.hero-content { position: relative; text-align: center; max-width: 950px; margin: 0 auto; }
+.hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 100px; font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 28px; backdrop-filter: blur(10px); animation: fadeInUp 0.8s ease; }
+.hero-badge-dot { width: 6px; height: 6px; background: #10B981; border-radius: 50%; }
+.hero h1 { font-size: clamp(2.5rem, 6vw, 4.8rem); margin-bottom: 24px; animation: fadeInUp 0.8s ease 0.1s both; }
+.hero p { font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: var(--text-secondary); max-width: 720px; margin: 0 auto 40px; animation: fadeInUp 0.8s ease 0.2s both; }
+.hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; animation: fadeInUp 0.8s ease 0.3s both; }
+.hero-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; max-width: 950px; margin: 0 auto; padding: 32px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); backdrop-filter: blur(20px); animation: fadeInUp 0.8s ease 0.4s both; }
+.hero-stat { text-align: center; }
+.hero-stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 4px; }
+.hero-stat-label { font-size: 0.88rem; color: var(--text-muted); }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+section { position: relative; z-index: 1; padding: 120px 0; scroll-margin-top: 80px; }
+.section-header { text-align: center; max-width: 720px; margin: 0 auto 70px; }
+.section-eyebrow { display: inline-block; padding: 6px 14px; background: var(--gradient-soft); border: 1px solid var(--glass-border); border-radius: 100px; font-size: 0.82rem; font-weight: 600; color: var(--eco-gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+.section-title { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 18px; }
+.section-subtitle { font-size: 1.1rem; color: var(--text-secondary); }
+.ecosystem-visual { max-width: 1100px; margin: 0 auto; position: relative; padding: 40px 0; }
+.ecosystem-triangle { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 24px; align-items: center; }
+.ecosystem-card { padding: 40px 28px; background: var(--glass-bg); border: 2px solid var(--glass-border); border-radius: 24px; backdrop-filter: blur(20px); text-align: center; transition: all 0.4s; text-decoration: none; color: inherit; display: block; position: relative; overflow: hidden; }
+.ecosystem-card::before { content: ''; position: absolute; inset: 0; background: var(--gradient); opacity: 0; transition: opacity 0.4s; z-index: -1; }
+.ecosystem-card:hover { transform: translateY(-8px); border-color: transparent; box-shadow: 0 20px 60px rgba(245, 158, 11, 0.3); }
+.ecosystem-card:hover::before { opacity: 0.1; }
+.ecosystem-icon { width: 70px; height: 70px; background: var(--gradient); border-radius: 18px; display: grid; place-items: center; color: white; margin: 0 auto 20px; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4); }
+.ecosystem-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
+.ecosystem-card p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 16px; }
+.ecosystem-link { color: var(--eco-gold); font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px; }
+.ecosystem-connector { display: flex; align-items: center; justify-content: center; color: var(--eco-gold); animation: pulse-arrow 2s infinite; }
+@keyframes pulse-arrow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+.packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+.package-card { position: relative; padding: 48px 36px; background: var(--glass-bg); border: 2px solid var(--glass-border); border-radius: 24px; backdrop-filter: blur(20px); transition: all 0.4s; }
+.package-card:hover { transform: translateY(-8px); border-color: rgba(245, 158, 11, 0.4); box-shadow: 0 20px 60px rgba(245, 158, 11, 0.2); }
+.package-card.featured { background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(245,158,11,0.1)); border-color: var(--eco-gold); transform: scale(1.03); box-shadow: 0 20px 60px rgba(245, 158, 11, 0.3); }
+.package-card.featured:hover { transform: scale(1.03) translateY(-8px); }
+.package-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); padding: 8px 20px; background: var(--gradient); color: white; border-radius: 100px; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4); }
+.package-name { font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 16px; }
+.package-price { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 700; margin-bottom: 8px; }
+.package-price span { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
+.package-save { display: inline-block; padding: 4px 12px; background: rgba(16, 185, 129, 0.15); color: #10B981; border-radius: 100px; font-size: 0.82rem; font-weight: 700; margin-bottom: 20px; }
+.package-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--glass-border); }
+.package-includes { list-style: none; margin-bottom: 36px; }
+.package-includes li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; font-size: 0.95rem; color: var(--text-secondary); }
+.package-includes svg { flex-shrink: 0; color: #10B981; margin-top: 2px; }
+.package-card .btn { width: 100%; justify-content: center; }
+.cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; }
+.case-card { padding: 40px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); backdrop-filter: blur(20px); transition: all 0.3s; }
+.case-card:hover { transform: translateY(-6px); border-color: rgba(245, 158, 11, 0.4); }
+.case-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.case-tag { padding: 6px 14px; background: rgba(245, 158, 11, 0.15); color: var(--eco-gold); border-radius: 100px; font-size: 0.82rem; font-weight: 600; }
+.case-title { font-size: 1.4rem; margin-bottom: 16px; }
+.case-desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 28px; line-height: 1.7; }
+.case-solutions { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.case-solution { padding: 6px 14px; background: var(--gradient-soft); border: 1px solid var(--glass-border); border-radius: 100px; font-size: 0.82rem; color: var(--text-primary); font-weight: 500; }
+.case-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 24px; border-top: 1px solid var(--glass-border); }
+.case-metric-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 700; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.case-metric-label { font-size: 0.82rem; color: var(--text-muted); }
+.calculator { max-width: 800px; margin: 0 auto; padding: 48px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; backdrop-filter: blur(20px); box-shadow: var(--shadow); }
+.calc-steps { display: flex; justify-content: space-between; margin-bottom: 40px; position: relative; }
+.calc-steps::before { content: ''; position: absolute; top: 18px; left: 10%; right: 10%; height: 2px; background: var(--glass-border); z-index: 0; }
+.calc-step-indicator { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.calc-step-dot { width: 36px; height: 36px; border-radius: 50%; background: var(--bg-tertiary); border: 2px solid var(--glass-border); display: grid; place-items: center; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; transition: all 0.3s; }
+.calc-step-indicator.active .calc-step-dot { background: var(--gradient); border-color: transparent; color: white; box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2); }
+.calc-step-indicator.done .calc-step-dot { background: #10B981; border-color: transparent; color: white; }
+.calc-step-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+.calc-step-indicator.active .calc-step-label { color: var(--text-primary); }
+.calc-content { min-height: 240px; }
+.calc-question { font-size: 1.4rem; margin-bottom: 24px; text-align: center; }
+.calc-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 32px; }
+.calc-option { padding: 18px; background: var(--bg-tertiary); border: 2px solid var(--glass-border); border-radius: 12px; cursor: pointer; text-align: center; transition: all 0.2s; color: var(--text-primary); font-weight: 500; }
+.calc-option:hover { border-color: var(--eco-gold); transform: translateY(-2px); }
+.calc-option.selected { background: var(--gradient-soft); border-color: var(--eco-gold); }
+.calc-nav { display: flex; justify-content: space-between; gap: 12px; }
+.calc-result { text-align: center; padding: 20px; }
+.calc-result-value { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 16px 0 8px; }
+.calc-result-note { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+.testimonials-wrap { position: relative; overflow: hidden; padding: 20px 0; }
+.testimonials-track { display: flex; gap: 24px; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.testimonial { flex: 0 0 calc(33.333% - 16px); padding: 32px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); backdrop-filter: blur(20px); }
+.testimonial-stars { display: flex; gap: 4px; color: #FBBF24; margin-bottom: 16px; }
+.testimonial-text { color: var(--text-secondary); font-size: 0.98rem; margin-bottom: 24px; font-style: italic; line-height: 1.7; }
+.testimonial-author { display: flex; align-items: center; gap: 14px; }
+.testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--gradient); display: grid; place-items: center; color: white; font-weight: 700; font-family: 'Space Grotesk', sans-serif; }
+.testimonial-name { font-weight: 600; margin-bottom: 2px; }
+.testimonial-role { font-size: 0.85rem; color: var(--text-muted); }
+.testimonials-controls { display: flex; justify-content: center; gap: 12px; margin-top: 40px; }
+.testimonial-btn { width: 44px; height: 44px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 50%; color: var(--text-primary); cursor: pointer; display: grid; place-items: center; transition: all 0.3s; }
+.testimonial-btn:hover { background: var(--gradient); color: white; border-color: transparent; }
+.faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 14px; backdrop-filter: blur(20px); overflow: hidden; transition: border-color 0.3s; }
+.faq-item.open { border-color: rgba(245, 158, 11, 0.4); }
+.faq-question { width: 100%; padding: 22px 28px; background: none; border: none; color: var(--text-primary); font-size: 1.05rem; font-weight: 600; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: inherit; }
+.faq-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--gradient-soft); display: grid; place-items: center; color: var(--eco-gold); transition: transform 0.3s; flex-shrink: 0; }
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--gradient); color: white; }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.faq-answer-inner { padding: 0 28px 24px; color: var(--text-secondary); line-height: 1.7; }
+.cta-final { position: relative; z-index: 1; padding: 100px 0; }
+.cta-final-box { position: relative; padding: 80px 40px; background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(245,158,11,0.15)); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 32px; text-align: center; overflow: hidden; backdrop-filter: blur(20px); }
+.cta-final-box::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(245,158,11,0.2) 0%, transparent 50%); animation: rotate 20s linear infinite; }
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.cta-final-content { position: relative; z-index: 1; }
+.cta-final h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 18px; }
+.cta-final p { font-size: 1.15rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 36px; }
+footer { position: relative; z-index: 1; padding: 80px 0 30px; border-top: 1px solid var(--glass-border); background: var(--bg-secondary); }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 48px; margin-bottom: 60px; }
+.footer-brand p { color: var(--text-secondary); margin: 20px 0; font-size: 0.95rem; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { width: 40px; height: 40px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 10px; display: grid; place-items: center; color: var(--text-secondary); transition: all 0.3s; text-decoration: none; }
+.footer-social a:hover { background: var(--gradient); color: white; border-color: transparent; transform: translateY(-3px); }
+.footer-col h4 { font-size: 1rem; margin-bottom: 20px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col a { color: var(--text-secondary); text-decoration: none; font-size: 0.92rem; transition: color 0.2s; }
+.footer-col a:hover { color: var(--eco-gold); }
+.newsletter-form { display: flex; gap: 8px; margin-top: 16px; }
+.newsletter-form input { flex: 1; padding: 12px 16px; background: var(--bg-tertiary); border: 1px solid var(--glass-border); border-radius: 10px; color: var(--text-primary); font-family: inherit; }
+[data-theme="light"] .newsletter-form input { background: white; }
+.newsletter-form button { padding: 12px 20px; background: var(--gradient); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; font-family: inherit; }
+.footer-bottom { padding-top: 30px; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; color: var(--text-muted); font-size: 0.88rem; }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { color: var(--text-muted); text-decoration: none; }
+.footer-legal a:hover { color: var(--text-primary); }
+.floating-whatsapp { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: grid; place-items: center; color: white; text-decoration: none; box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4); z-index: 999; transition: all 0.3s; animation: pulseWA 2s infinite; }
+.floating-whatsapp:hover { transform: scale(1.1); }
+@keyframes pulseWA {
+  0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0); }
+}
+.floating-top { position: fixed; bottom: 100px; right: 30px; width: 48px; height: 48px; background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(20px); border-radius: 50%; display: grid; place-items: center; color: var(--text-primary); cursor: pointer; z-index: 998; opacity: 0; pointer-events: none; transition: all 0.3s; }
+.floating-top.show { opacity: 1; pointer-events: auto; }
+.floating-top:hover { background: var(--gradient); color: white; border-color: transparent; }
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 968px) {
+  nav ul { display: none; }
+  .mobile-toggle { display: block; }
+  .status-pill { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .testimonial { flex: 0 0 calc(50% - 12px); }
+  .ecosystem-triangle { grid-template-columns: 1fr; gap: 16px; }
+  .ecosystem-connector { transform: rotate(90deg); justify-content: center; }
+  .package-card.featured { transform: scale(1); }
+  .package-card.featured:hover { transform: translateY(-8px); }
+}
+@media (max-width: 640px) {
+  section { padding: 80px 0; }
+  .hero { padding: 120px 0 60px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .testimonial { flex: 0 0 100%; }
+  .calculator { padding: 28px 20px; }
+  .calc-step-label { display: none; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+}
+.mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--glass-border); padding: 20px; z-index: 999; }
+.mobile-menu.show { display: block; }
+.mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.mobile-menu a { color: var(--text-primary); text-decoration: none; font-weight: 500; padding: 8px 0; display: block; }
+/* Header más grande y centrado */
+header {
+  padding: 20px 0 !important;
+}
+
+.nav-wrap {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 40px !important;
+  justify-content: center !important;
+  gap: 40px !important;
+}
+
+nav ul {
+  flex: 1 !important;
+  justify-content: center !important;
+  gap: 36px !important;
+}
+
+nav a {
+  font-size: 1.05rem !important;
+  padding: 8px 4px !important;
+}
+
+.logo {
+  margin-right: auto;
+}
+
+.nav-right {
+  margin-left: auto;
+}
+</style>
+</head>
+<body>
+
+<div class="bg-blobs">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<header id="header">
+  <div class="container nav-wrap">
+    <a href="NexusIT.html" class="logo">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="6"/>
+          <circle cx="12" cy="12" r="2"/>
+        </svg>
+      </div>
+      Nexus<span class="gradient-text">Eco</span>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#ecosistema">Ecosistema</a></li>
+        <li><a href="#paquetes">Paquetes</a></li>
+        <li><a href="#casos">Casos</a></li>
+        <li><a href="#cotizador">Cotizador</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="index.html">IT Support</a></li>
+        <li><a href="automatizacion-phyton.html">Automatización Python</a></li>
+        <li><a href="ia-empresas.html">IA para Empresas</a></li>
+        <li><a href="ecosistema-digital.html">Ecosistema Digital</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        Ecosistema activo
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+        <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+      <a href="NexusIT.html#contacto" class="btn btn-primary" style="padding: 10px 18px; font-size: 0.88rem;">Demo gratis</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#ecosistema">Ecosistema</a></li>
+    <li><a href="#paquetes">Paquetes</a></li>
+    <li><a href="#casos">Casos</a></li>
+    <li><a href="#cotizador">Cotizador</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="NexusIT.html">IT Support</a></li>
+    <li><a href="automatizacion-python.html">Automatización</a></li>
+    <li><a href="ia-empresas.html">IA para Empresas</a></li>
+  </ul>
+</div>
+
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Tres soluciones integradas · Transformación digital completa
+      </div>
+      <h1>Tu <span class="gradient-text">Ecosistema Digital</span> integral</h1>
+      <p>IT Support + Automatización Python + Inteligencia Artificial. Tres soluciones que trabajan juntas para llevar tu empresa al siguiente nivel. Paquetes combinados con descuentos exclusivos.</p>
+      <div class="hero-ctas">
+        <a href="#paquetes" class="btn btn-primary">
+          Ver paquetes
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#ecosistema" class="btn btn-secondary">Cómo se conectan</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value" data-count="3">0</div>
+          <div class="hero-stat-label">Soluciones integradas</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" data-count="30">0</div>
+          <div class="hero-stat-label">% Ahorro en paquetes</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" data-count="100">0</div>
+          <div class="hero-stat-label">% Cobertura digital</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">ROI</div>
+          <div class="hero-stat-label">En menos de 6 meses</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ecosistema">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">El ecosistema</span>
+      <h2 class="section-title">Tres soluciones, <span class="gradient-text">un solo objetivo</span></h2>
+      <p class="section-subtitle">Cada solución potencia a las otras. Juntas, transforman tu empresa de forma integral.</p>
+    </div>
+    <div class="ecosystem-visual">
+      <div class="ecosystem-triangle">
+        <a href="NexusIT.html" class="ecosystem-card reveal">
+          <div class="ecosystem-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>IT Support</h3>
+          <p>La base sólida. Soporte técnico 24/7, ciberseguridad y mantenimiento preventivo.</p>
+          <div class="ecosystem-link">Ver servicios →</div>
+        </a>
+        <div class="ecosystem-connector reveal">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <a href="automatizacion-python.html" class="ecosystem-card reveal">
+          <div class="ecosystem-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <h3>Automatización Python</h3>
+          <p>La eficiencia operativa. Scripts que automatizan tareas, backups, monitoreo y despliegues.</p>
+          <div class="ecosystem-link">Ver servicios →</div>
+        </a>
+        <div class="ecosystem-connector reveal">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <a href="ia-empresas.html" class="ecosystem-card reveal">
+          <div class="ecosystem-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 10 10"/>
+              <path d="M12 2a10 10 0 0 1 10 10"/>
+              <path d="M12 12l4-4"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h3>IA para Empresas</h3>
+          <p>La inteligencia. Chatbots, análisis predictivo y dashboards que toman decisiones.</p>
+          <div class="ecosystem-link">Ver servicios →</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="paquetes">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Paquetes combinados</span>
+      <h2 class="section-title">Elegí el paquete <span class="gradient-text">que mejor se adapta</span></h2>
+      <p class="section-subtitle">Combiná las soluciones y ahorrá hasta un 30%. Precios transparentes, sin letra chica.</p>
+    </div>
+    <div class="packages-grid">
+      <div class="package-card reveal">
+        <div class="package-name">Pack Starter</div>
+        <div class="package-price">$<span>249.000</span><span>/mes</span></div>
+        <div class="package-save">Ahorrás $89.000</div>
+        <div class="package-desc">Ideal para PyMEs que quieren profesionalizar su IT y automatizar tareas básicas.</div>
+        <ul class="package-includes">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>IT Support Básico:</strong> Hasta 10 equipos</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Automatización:</strong> 2 scripts básicos</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div>Mesa de ayuda por email</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div>Mantenimiento preventivo mensual</div></li>
+        </ul>
+        <a href="NexusIT.html#contacto" class="btn btn-secondary">Elegir Starter</a>
+      </div>
+
+      <div class="package-card featured reveal">
+        <div class="package-badge">Más elegido</div>
+        <div class="package-name">Pack Growth</div>
+        <div class="package-price">$<span>489.000</span><span>/mes</span></div>
+        <div class="package-save">Ahorrás $198.000</div>
+        <div class="package-desc">Para PyMEs en crecimiento que necesitan soporte completo + automatización + IA básica.</div>
+        <ul class="package-includes">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>IT Support Pro:</strong> Hasta 50 equipos, 24/7</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Automatización:</strong> 5 scripts + monitoreo</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>IA Básica:</strong> Chatbot atención al cliente</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div>Ciberseguridad + backups avanzados</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div>2 visitas on-site por mes</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div>Dashboard de métricas integrado</div></li>
+        </ul>
+        <a href="NexusIT.html#contacto" class="btn btn-primary">Elegir Growth</a>
+      </div>
+
+      <div class="package-card reveal">
+        <div class="package-name">Pack Enterprise</div>
+        <div class="package-price">$<span>899.000</span><span>/mes</span></div>
+        <div class="package-save">Ahorrás $378.000</div>
+        <div class="package-desc">Para empresas con operaciones críticas que necesitan el ecosistema completo con IA avanzada.</div>
+        <ul class="package-includes">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>IT Enterprise:</strong> Equipos ilimitados, SLA 15 min</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Automatización:</strong> Scripts ilimitados</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>IA Avanzada:</strong> Chatbot + predictivo + docs</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div>Técnico dedicado asignado</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div>Ciberseguridad avanzada + SOC</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div>Visitas on-site ilimitadas</div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div>Consultoría estratégica mensual</div></li>
+        </ul>
+        <a href="NexusIT.html#contacto" class="btn btn-secondary">Elegir Enterprise</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="casos">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Casos de éxito integrados</span>
+      <h2 class="section-title">Empresas que usan <span class="gradient-text">el ecosistema completo</span></h2>
+      <p class="section-subtitle">Resultados reales de empresas que combinaron las tres soluciones.</p>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card reveal">
+        <div class="case-header">
+          <h3 class="case-title">E-commerce Platense</h3>
+          <span class="case-tag">Retail</span>
+        </div>
+        <p class="case-desc">Ecosistema completo: IT Support para su infraestructura, automatización de pedidos y stock, y chatbot de atención con IA.</p>
+        <div class="case-solutions">
+          <span class="case-solution">IT Support</span>
+          <span class="case-solution">Automatización</span>
+          <span class="case-solution">IA Chatbot</span>
+        </div>
+        <div class="case-metrics">
+          <div><div class="case-metric-value">-80%</div><div class="case-metric-label">Tareas manuales</div></div>
+          <div><div class="case-metric-value">+45%</div><div class="case-metric-label">Ventas</div></div>
+          <div><div class="case-metric-value">2 meses</div><div class="case-metric-label">ROI</div></div>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-header">
+          <h3 class="case-title">Clínica Norte</h3>
+          <span class="case-tag">Salud</span>
+        </div>
+        <p class="case-desc">Ecosistema para gestión de turnos: soporte IT, automatización de recordatorios y dashboard predictivo con IA.</p>
+        <div class="case-solutions">
+          <span class="case-solution">IT Support</span>
+          <span class="case-solution">Automatización</span>
+          <span class="case-solution">IA Predictiva</span>
+        </div>
+        <div class="case-metrics">
+          <div><div class="case-metric-value">-60%</div><div class="case-metric-label">Ausentismo</div></div>
+          <div><div class="case-metric-value">+35%</div><div class="case-metric-label">Eficiencia</div></div>
+          <div><div class="case-metric-value">4 meses</div><div class="case-metric-label">ROI</div></div>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-header">
+          <h3 class="case-title">Logística Sur SA</h3>
+          <span class="case-tag">Transporte</span>
+        </div>
+        <p class="case-desc">Transformación digital completa: migración a la nube, automatización de rutas y análisis predictivo de demanda con IA.</p>
+        <div class="case-solutions">
+          <span class="case-solution">IT Support</span>
+          <span class="case-solution">Automatización</span>
+          <span class="case-solution">IA Analytics</span>
+        </div>
+        <div class="case-metrics">
+          <div><div class="case-metric-value">-35%</div><div class="case-metric-label">Costos</div></div>
+          <div><div class="case-metric-value">+50%</div><div class="case-metric-label">Velocidad</div></div>
+          <div><div class="case-metric-value">$5M</div><div class="case-metric-label">Ahorro/año</div></div>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-header">
+          <h3 class="case-title">Estudio Contable Gómez</h3>
+          <span class="case-tag">Servicios</span>
+        </div>
+        <p class="case-desc">Ecosistema contable: soporte IT, scripts de procesamiento de facturas y IA para extracción y clasificación de documentos.</p>
+        <div class="case-solutions">
+          <span class="case-solution">IT Support</span>
+          <span class="case-solution">Automatización</span>
+          <span class="case-solution">IA Documental</span>
+        </div>
+        <div class="case-metrics">
+          <div><div class="case-metric-value">-90%</div><div class="case-metric-label">Data entry</div></div>
+          <div><div class="case-metric-value">98%</div><div class="case-metric-label">Precisión</div></div>
+          <div><div class="case-metric-value">60hs</div><div class="case-metric-label">Ahorradas/mes</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cotizador">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Cotizador de paquetes</span>
+      <h2 class="section-title">Calculá tu paquete ideal <span class="gradient-text">en 1 minuto</span></h2>
+      <p class="section-subtitle">Respondé 3 preguntas y te damos el paquete perfecto con precio estimado.</p>
+    </div>
+    <div class="calculator reveal">
+      <div class="calc-steps">
+        <div class="calc-step-indicator active" data-step="1">
+          <div class="calc-step-dot">1</div>
+          <div class="calc-step-label">Tamaño</div>
+        </div>
+        <div class="calc-step-indicator" data-step="2">
+          <div class="calc-step-dot">2</div>
+          <div class="calc-step-label">Necesidades</div>
+        </div>
+        <div class="calc-step-indicator" data-step="3">
+          <div class="calc-step-dot">3</div>
+          <div class="calc-step-label">Resultado</div>
+        </div>
+      </div>
+      <div class="calc-content" id="calcContent"></div>
+      <div class="calc-nav">
+        <button class="btn btn-secondary" id="calcPrev" disabled>← Atrás</button>
+        <button class="btn btn-primary" id="calcNext">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonios">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Testimonios</span>
+      <h2 class="section-title">Lo que dicen <span class="gradient-text">nuestros clientes</span></h2>
+      <p class="section-subtitle">Empresas que transformaron su operación con el ecosistema completo.</p>
+    </div>
+    <div class="testimonials-wrap">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Contratamos el Pack Growth y fue la mejor decisión. IT Support + automatización + chatbot = nuestra empresa funciona como reloj suizo."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <div class="testimonial-name">Martín Rodríguez</div>
+              <div class="testimonial-role">CEO · E-commerce Platense</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"El ecosistema completo nos cambió la vida. Antes teníamos 3 proveedores distintos, ahora todo integrado con NexusIT. Ahorro de tiempo y plata."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">LF</div>
+            <div>
+              <div class="testimonial-name">Laura Fernández</div>
+              <div class="testimonial-role">Gerente General · Clínica Norte</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"El Pack Enterprise vale cada peso. Tenemos todo cubierto: soporte, automatización y IA. Nuestro equipo ahora se enfoca en crecer, no en apagar incendios."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DG</div>
+            <div>
+              <div class="testimonial-name">Diego Gómez</div>
+              <div class="testimonial-role">Director · Logística Sur SA</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Empezamos con IT Support, después agregamos automatización y ahora IA. El ecosistema se va armando solo. Increíble cómo se potencian las soluciones."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SC</div>
+            <div>
+              <div class="testimonial-name">Sofía Castillo</div>
+              <div class="testimonial-role">CTO · Estudio Contable Gómez</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"El Pack Starter nos permitió arrancar con lo justo y necesario. En 6 meses escalamos al Growth. La flexibilidad es clave."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JP</div>
+            <div>
+              <div class="testimonial-name">Juan Pablo Méndez</div>
+              <div class="testimonial-role">Fundador · Retail Plus</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"La integración entre las tres soluciones es brutal. Los datos de la IA alimentan los scripts de automatización, y todo corre sobre una infraestructura sólida."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">CV</div>
+            <div>
+              <div class="testimonial-name">Carolina Vega</div>
+              <div class="testimonial-role">Directora · Importadora del Litoral</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonials-controls">
+      <button class="testimonial-btn" id="testPrev" aria-label="Anterior">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="testimonial-btn" id="testNext" aria-label="Siguiente">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Preguntas frecuentes</span>
+      <h2 class="section-title">Dudas sobre el <span class="gradient-text">ecosistema</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Puedo contratar solo una solución y después sumar las otras?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">¡Claro! De hecho es lo más común. Muchos clientes arrancan con IT Support, después agregan automatización y finalmente IA. Las soluciones están diseñadas para integrarse sin fricción. Si empezás con un paquete y querés escalar, te damos descuento por la migración.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Cuánto ahorro realmente combinando las tres soluciones?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Entre 20% y 30% según el paquete. El Pack Starter ahorra $89.000/mes, el Growth $198.000/mes y el Enterprise $378.000/mes. Además, al tener todo integrado, reducís costos de coordinación entre proveedores y ganás eficiencia operativa.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Quién se encarga de la integración entre las soluciones?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Nosotros. Tenemos un equipo dedicado a la integración. Vos no tenés que hacer nada técnico. Nos encargamos de que las tres soluciones "hablen entre sí" y trabajen como un solo sistema. Te entregamos un dashboard unificado donde ves todo.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Puedo cambiar de paquete en cualquier momento?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Sí. Podés subir o bajar de paquete cuando quieras. Si subís, se prorratea la diferencia. Si bajás, el cambio aplica para el próximo ciclo. Sin penalidades, sin letra chica. Trabajamos mes a mes porque queremos que te quedes porque estás contento, no porque un contrato te obliga.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Qué pasa si ya tengo algún proveedor de IT?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">No hay problema. Podemos convivir con tu proveedor actual o reemplazarlo completamente. Hacemos una migración ordenada sin interrupciones. Muchos clientes vienen de otros proveedores y nos dicen que la diferencia es abismal en calidad de servicio y comunicación.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Tienen permanencia mínima?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Todos nuestros paquetes son mes a mes. Podés cancelar cuando quieras con 30 días de preaviso. Preferimos ganarnos tu confianza cada mes con resultados, no con contratos que te atan.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿En cuánto tiempo veo resultados?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">IT Support: desde el día 1 (menos incidentes, respuesta rápida). Automatización: en 2-4 semanas ya tenés los primeros scripts funcionando. IA: entre 4 y 8 semanas según la complejidad. El ROI completo del ecosistema se ve en 3-6 meses.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Ofrecen una prueba o demo gratuita?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Sí. Ofrecemos un diagnóstico gratuito de 30 minutos donde analizamos tu situación actual, identificamos oportunidades y te armamos una propuesta a medida sin compromiso. Es el mejor punto de partida para ver si el ecosistema es para vos.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-final-box reveal">
+      <div class="cta-final-content">
+        <h2>Tu empresa merece un <span class="gradient-text">ecosistema digital completo</span></h2>
+        <p>Agendá una demo gratuita de 30 minutos. Te mostramos cómo las tres soluciones trabajan juntas para transformar tu negocio.</p>
+        <a href="NexusIT.html#contacto" class="btn btn-primary" style="padding: 16px 32px; font-size: 1.05rem;">
+          Quiero mi demo gratis
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="NexusIT.html" class="logo">
+          <div class="logo-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          Nexus<span class="gradient-text">Eco</span>
+        </a>
+        <p>El ecosistema digital integral para empresas que quieren crecer. IT Support + Automatización + IA, todo en un solo lugar.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="#" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Ecosistema</h4>
+        <ul>
+          <li><a href="NexusIT.html">IT Support</a></li>
+          <li><a href="automatizacion-python.html">Automatización Python</a></li>
+          <li><a href="ia-empresas.html">IA para Empresas</a></li>
+          <li><a href="#paquetes">Paquetes combinados</a></li>
+          <li><a href="#casos">Casos de éxito</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="NexusIT.html#nosotros">Sobre nosotros</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="NexusIT.html#contacto">Contacto</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 12px;">Casos de éxito, tips de IT y novedades del ecosistema. Una vez por mes.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('¡Suscripto!');">
+          <input type="email" placeholder="tu@email.com" required>
+          <button type="submit">OK</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 NexusIT · Todos los derechos reservados</div>
+      <div class="footer-legal">
+        <a href="#">Términos y condiciones</a>
+        <a href="#">Política de privacidad</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5491100000000?text=Hola!%20Quisiera%20consultar%20por%20el%20Ecosistema%20Digital" class="floating-whatsapp" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<button class="floating-top" id="floatingTop" aria-label="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// Theme toggle
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const htmlEl = document.documentElement;
+const sunIcon = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+const moonIcon = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+themeToggle.addEventListener('click', () => {
+  const current = htmlEl.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  htmlEl.setAttribute('data-theme', next);
+  themeIcon.innerHTML = next === 'dark' ? sunIcon : moonIcon;
+});
+
+// Header scroll
+const header = document.getElementById('header');
+const floatingTop = document.getElementById('floatingTop');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  header.classList.toggle('scrolled', y > 50);
+  floatingTop.classList.toggle('show', y > 600);
+});
+floatingTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Mobile menu
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+mobileToggle.addEventListener('click', () => mobileMenu.classList.toggle('show'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('show')));
+
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      if (entry.target.querySelector('[data-count]') || entry.target.hasAttribute('data-count')) {
+        animateCounters(entry.target);
+      }
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Counters
+function animateCounters(container) {
+  const counters = container.querySelectorAll('[data-count]');
+  counters.forEach(counter => {
+    if (counter.dataset.animated) return;
+    counter.dataset.animated = 'true';
+    const target = parseInt(counter.dataset.count);
+    const duration = 2000;
+    const start = performance.now();
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      counter.textContent = Math.floor(target * eased);
+      if (progress < 1) requestAnimationFrame(update);
+      else counter.textContent = target;
+    }
+    requestAnimationFrame(update);
+  });
+}
+
+// Testimonials carousel
+const track = document.getElementById('testimonialsTrack');
+let testIndex = 0;
+const testPrev = document.getElementById('testPrev');
+const testNext = document.getElementById('testNext');
+function getVisible() {
+  if (window.innerWidth < 640) return 1;
+  if (window.innerWidth < 968) return 2;
+  return 3;
+}
+function updateTestimonials() {
+  const cards = track.children;
+  const visible = getVisible();
+  const maxIndex = cards.length - visible;
+  if (testIndex > maxIndex) testIndex = 0;
+  if (testIndex < 0) testIndex = maxIndex;
+  const cardWidth = cards[0].offsetWidth + 24;
+  track.style.transform = `translateX(-${testIndex * cardWidth}px)`;
+}
+testNext.addEventListener('click', () => { testIndex++; updateTestimonials(); });
+testPrev.addEventListener('click', () => { testIndex--; updateTestimonials(); });
+window.addEventListener('resize', updateTestimonials);
+let autoScroll = setInterval(() => { testIndex++; updateTestimonials(); }, 5000);
+track.addEventListener('mouseenter', () => clearInterval(autoScroll));
+track.addEventListener('mouseleave', () => {
+  autoScroll = setInterval(() => { testIndex++; updateTestimonials(); }, 5000);
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-answer').style.maxHeight = null;
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+// Calculator de paquetes
+const calcSteps = [
+  {
+    question: '¿Cuántos empleados tiene tu empresa?',
+    field: 'tamano',
+    options: [
+      { label: '1-10 empleados', value: 'starter' },
+      { label: '11-50 empleados', value: 'growth' },
+      { label: '51-200 empleados', value: 'enterprise' },
+      { label: 'Más de 200', value: 'enterprise-plus' }
+    ]
+  },
+  {
+    question: '¿Qué es más urgente para tu empresa?',
+    field: 'prioridad',
+    options: [
+      { label: '🛡️ Estabilidad IT', value: 1 },
+      { label: '⚡ Automatizar tareas', value: 1.3 },
+      { label: '🤖 Sumar IA', value: 1.6 },
+      { label: '🚀 Todo integrado', value: 2 }
+    ]
+  }
+];
+
+let currentStep = 1;
+let calcData = {};
+const calcContent = document.getElementById('calcContent');
+const calcPrev = document.getElementById('calcPrev');
+const calcNext = document.getElementById('calcNext');
+
+function renderStep(step) {
+  document.querySelectorAll('.calc-step-indicator').forEach(ind => {
+    const s = parseInt(ind.dataset.step);
+    ind.classList.remove('active', 'done');
+    if (s < step) ind.classList.add('done');
+    if (s === step) ind.classList.add('active');
+  });
+  
+  if (step <= 2) {
+    const data = calcSteps[step - 1];
+    calcContent.innerHTML = `
+      <h3 class="calc-question">${data.question}</h3>
+      <div class="calc-options" data-field="${data.field}">
+        ${data.options.map(opt => `
+          <div class="calc-option" data-value="${opt.value}">${opt.label}</div>
+        `).join('')}
+      </div>
+    `;
+    
+    calcContent.querySelectorAll('.calc-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        calcContent.querySelectorAll('.calc-option').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        calcData[data.field] = opt.dataset.value;
+      });
+    });
+    
+    calcPrev.disabled = step === 1;
+    calcNext.textContent = step === 2 ? 'Ver resultado →' : 'Siguiente →';
+  } else {
+    const tamano = calcData.tamano || 'starter';
+    const prioridad = parseFloat(calcData.prioridad) || 1;
+    
+    let paquete, precio, ahorro;
+    if (tamano === 'starter') {
+      paquete = 'Pack Starter';
+      precio = 249000;
+      ahorro = 89000;
+    } else if (tamano === 'growth') {
+      paquete = 'Pack Growth';
+      precio = 489000;
+      ahorro = 198000;
+    } else {
+      paquete = 'Pack Enterprise';
+      precio = 899000;
+      ahorro = 378000;
+    }
+    
+    const precioAjustado = Math.round(precio * prioridad);
+    const roi = Math.round(precioAjustado * 3);
+    
+    calcContent.innerHTML = `
+      <div class="calc-result">
+        <div style="font-size: 0.95rem; color: var(--text-muted);">Te recomendamos</div>
+        <div class="calc-result-value">${paquete}</div>
+        <div style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 16px;">
+          $<strong>${precioAjustado.toLocaleString('es-AR')}</strong>/mes
+        </div>
+        <div class="calc-result-note">
+          Ahorro mensual: <strong style="color: #10B981;">$${ahorro.toLocaleString('es-AR')}</strong><br>
+          ROI estimado en 12 meses: <strong style="color: #10B981;">$${roi.toLocaleString('es-AR')}</strong><br>
+          Recuperación de inversión en <strong>3-6 meses</strong>
+        </div>
+        <a href="NexusIT.html#contacto" class="btn btn-primary">Quiero este paquete →</a>
+      </div>
+    `;
+    calcNext.style.display = 'none';
+    calcPrev.textContent = '← Volver';
+  }
+}
+
+calcNext.addEventListener('click', () => {
+  if (currentStep < 3) {
+    currentStep++;
+    renderStep(currentStep);
+  }
+});
+calcPrev.addEventListener('click', () => {
+  if (currentStep > 1) {
+    currentStep--;
+    renderStep(currentStep);
+    if (currentStep < 3) {
+      calcNext.style.display = '';
+      calcPrev.textContent = '← Atrás';
+    }
+  }
+});
+
+renderStep(1);
+
+// Active nav on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) { current = section.getAttribute('id'); }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) { link.classList.add('active'); }
+  });
+});
+</script>
+
+</body>
+</html>
