@@ -6,8 +6,12 @@
 <title>NexusIT — Soporte Técnico Premium para tu Empresa</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <meta name="description" content="Soporte IT 24/7, mesa de ayuda, ciberseguridad y mantenimiento preventivo para PyMEs. Respuesta en menos de 15 minutos.">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5.0.0/index.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5.0.0/index.css">
+<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5.0.0/index.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5.0.0/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css"></noscript>
 <style>
 :root {
   --bg-primary: #0B1120;
@@ -62,7 +66,7 @@ h1, h2, h3, h4 {
   display: inline-block;
 }
 .bg-blobs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-.blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.4; animation: float 20s infinite ease-in-out; }
+.blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.4; animation: float 20s infinite ease-in-out; will-change: transform; }
 .blob-1 { width: 500px; height: 500px; background: #3B82F6; top: -100px; left: -100px; }
 .blob-2 { width: 600px; height: 600px; background: #8B5CF6; top: 40%; right: -200px; animation-delay: -5s; }
 .blob-3 { width: 400px; height: 400px; background: #EC4899; bottom: -100px; left: 30%; animation-delay: -10s; }
@@ -122,7 +126,7 @@ nav a:hover::after, nav a.active::after { width: 100%; }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 .logos-bar { position: relative; z-index: 1; padding: 60px 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); overflow: hidden; }
 .logos-title { text-align: center; font-size: 0.88rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 32px; }
-.logos-track { display: flex; gap: 80px; animation: scroll-x 30s linear infinite; width: max-content; }
+.logos-track { display: flex; gap: 80px; animation: scroll-x 30s linear infinite; width: max-content; will-change: transform; }
 .logo-item { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--text-muted); white-space: nowrap; opacity: 0.6; transition: opacity 0.3s; }
 .logo-item:hover { opacity: 1; }
 @keyframes scroll-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -132,7 +136,7 @@ section { position: relative; z-index: 1; padding: 120px 0; scroll-margin-top: 8
 .section-title { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 18px; }
 .section-subtitle { font-size: 1.1rem; color: var(--text-secondary); }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-.service-card { position: relative; padding: 36px 32px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); backdrop-filter: blur(20px); transition: all 0.4s ease; overflow: hidden; }
+.service-card { position: relative; padding: 36px 32px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); backdrop-filter: blur(20px); transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; overflow: hidden; }
 .service-card:hover { transform: translateY(-8px); border-color: transparent; box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2); }
 .service-icon { width: 56px; height: 56px; background: var(--gradient-soft); border: 1px solid var(--glass-border); border-radius: 14px; display: grid; place-items: center; color: var(--accent-1); margin-bottom: 24px; transition: all 0.3s; }
 .service-card:hover .service-icon { background: var(--gradient); color: white; transform: rotate(-8deg) scale(1.05); }
@@ -273,8 +277,8 @@ footer { position: relative; z-index: 1; padding: 80px 0 30px; border-top: 1px s
 .floating-top:hover { background: var(--gradient); color: white; border-color: transparent; }
 .floating-download { position: fixed; bottom: 170px; right: 30px; width: 48px; height: 48px; background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(20px); border-radius: 50%; display: grid; place-items: center; color: var(--text-primary); cursor: pointer; z-index: 998; transition: all 0.3s; text-decoration: none; }
 .floating-download:hover { background: var(--gradient); color: white; border-color: transparent; transform: translateY(-3px); }
-.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal { opacity: 0; transform: translateY(40px); will-change: opacity, transform; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
 @media (max-width: 968px) {
   nav ul { display: none; }
   .mobile-toggle { display: block; }
@@ -334,7 +338,7 @@ nav a {
 </head>
 <body>
 
-<div class="bg-blobs">
+<div class="bg-blobs" aria-hidden="true">
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
@@ -1080,16 +1084,25 @@ themeToggle.addEventListener('click', () => {
 });
 const header = document.getElementById('header');
 const floatingTop = document.getElementById('floatingTop');
+let ticking = false;
 window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  header.classList.toggle('scrolled', y > 50);
-  floatingTop.classList.toggle('show', y > 600);
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const y = window.scrollY;
+      header.classList.toggle('scrolled', y > 50);
+      floatingTop.classList.toggle('show', y > 600);
+      ticking = false;
+    });
+    ticking = true;
+  }
 });
 floatingTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 const mobileToggle = document.getElementById('mobileToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 mobileToggle.addEventListener('click', () => mobileMenu.classList.toggle('show'));
 mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('show')));
+
+// Intersection Observer con rootMargin para mejor rendimiento
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1097,9 +1110,10 @@ const observer = new IntersectionObserver((entries) => {
       if (entry.target.querySelector('[data-count]') || entry.target.hasAttribute('data-count')) {
         animateCounters(entry.target);
       }
+      observer.unobserve(entry.target); // Dejar de observar una vez visible
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.15, rootMargin: '50px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 function animateCounters(container) {
   const counters = container.querySelectorAll('[data-count]');
@@ -1248,16 +1262,23 @@ document.getElementById('downloadBtn').addEventListener('click', (e) => {
 });
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('nav a');
+let navTicking = false;
 window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (window.scrollY >= sectionTop) { current = section.getAttribute('id'); }
-  });
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) { link.classList.add('active'); }
-  });
+  if (!navTicking) {
+    window.requestAnimationFrame(() => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) { current = section.getAttribute('id'); }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) { link.classList.add('active'); }
+      });
+      navTicking = false;
+    });
+    navTicking = true;
+  }
 });
 </script>
 
