@@ -1,67 +1,49 @@
-# Examples:
-#   node_modules/           # ignore node_modules folder entirely
-#   *.txt                   # ignore all .txt files
-#   !foo.txt                # include foo.txt even if parent directory is excluded
-#   docs/*.pdf              # ignore pdf files in docs/ folder only
-#   build/                  # ignore entire build folder
-#   *.log                   # ignore all log files
-#
-# For more information: https://git-scm.com/docs/gitignore
-
-# Python
+# Compiled and build artifacts
+*.pyc
 __pycache__/
-*.py[cod]
-*$py.class
+*.o
+*.obj
+*.class
+*.exe
+*.dll
 *.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+*.a
+*.out
 
-# Environment
-.env
+# Dependencies
 .venv/
-env/
-ENV/
+venv/
+node_modules/
+dist/
+build/
+target/
+.gradle/
+.mypy_cache/
+.pytest_cache/
 
-# IDE
-.vscode/
-.idea/
+# Logs and temp files
+*.log
+*.tmp
 *.swp
 *.swo
 
-# OS
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# System files
 .DS_Store
 Thumbs.db
 
-# Logs
-*.log
-
 # Coverage
-.coverage
-htmlcov/
 coverage/
-
-# Temporary files
-*.tmp
-*.temp
-
-# Build outputs
-target/
-dist/
-out/
+htmlcov/
+.coverage
 
 # Compressed files
 *.zip

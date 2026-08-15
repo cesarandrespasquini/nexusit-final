@@ -123,16 +123,16 @@ section { position: relative; z-index: 1; padding: 120px 0; scroll-margin-top: 8
 .section-eyebrow { display: inline-block; padding: 6px 14px; background: var(--gradient-soft); border: 1px solid var(--glass-border); border-radius: 100px; font-size: 0.82rem; font-weight: 600; color: var(--eco-gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
 .section-title { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 18px; }
 .section-subtitle { font-size: 1.1rem; color: var(--text-secondary); }
-.ecosystem-visual { max-width: 1100px; margin: 0 auto; position: relative; padding: 32px 0; }
-.ecosystem-triangle { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 19px; align-items: center; }
-.ecosystem-card { padding: 32px 22px; background: var(--glass-bg); border: 2px solid var(--glass-border); border-radius: 19px; backdrop-filter: blur(20px); text-align: center; transition: all 0.4s; text-decoration: none; color: inherit; display: block; position: relative; overflow: hidden; }
+.ecosystem-visual { max-width: 1100px; margin: 0 auto; position: relative; padding: 26px 0; }
+.ecosystem-triangle { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 15px; align-items: center; }
+.ecosystem-card { padding: 26px 18px; background: var(--glass-bg); border: 2px solid var(--glass-border); border-radius: 15px; backdrop-filter: blur(20px); text-align: center; transition: all 0.4s; text-decoration: none; color: inherit; display: block; position: relative; overflow: hidden; }
 .ecosystem-card::before { content: ''; position: absolute; inset: 0; background: var(--gradient); opacity: 0; transition: opacity 0.4s; z-index: -1; }
-.ecosystem-card:hover { transform: translateY(-6px); border-color: transparent; box-shadow: 0 16px 48px rgba(245, 158, 11, 0.3); }
+.ecosystem-card:hover { transform: translateY(-5px); border-color: transparent; box-shadow: 0 13px 38px rgba(245, 158, 11, 0.25); }
 .ecosystem-card:hover::before { opacity: 0.1; }
-.ecosystem-icon { width: 56px; height: 56px; background: var(--gradient); border-radius: 14px; display: grid; place-items: center; color: white; margin: 0 auto 16px; box-shadow: 0 6px 19px rgba(245, 158, 11, 0.4); }
-.ecosystem-card h3 { font-size: 1.12rem; margin-bottom: 10px; }
-.ecosystem-card p { font-size: 0.76rem; color: var(--text-secondary); margin-bottom: 13px; }
-.ecosystem-link { color: var(--eco-gold); font-weight: 600; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 5px; }
+.ecosystem-icon { width: 45px; height: 45px; background: var(--gradient); border-radius: 11px; display: grid; place-items: center; color: white; margin: 0 auto 13px; box-shadow: 0 5px 15px rgba(245, 158, 11, 0.35); }
+.ecosystem-card h3 { font-size: 0.93rem; margin-bottom: 8px; }
+.ecosystem-card p { font-size: 0.68rem; color: var(--text-secondary); margin-bottom: 11px; }
+.ecosystem-link { color: var(--eco-gold); font-weight: 600; font-size: 0.65rem; display: inline-flex; align-items: center; gap: 4px; }
 .ecosystem-connector { display: flex; align-items: center; justify-content: center; color: var(--eco-gold); animation: pulse-arrow 2s infinite; }
 @keyframes pulse-arrow {
   0%, 100% { opacity: 0.5; transform: scale(1); }
