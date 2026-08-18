@@ -558,6 +558,22 @@ footer { position: relative; z-index: 1; padding: 80px 0 30px; border-top: 1px s
 .floating-top:hover { background: var(--gradient); color: white; border-color: transparent; }
 .floating-download { position: fixed; bottom: 170px; right: 30px; width: 48px; height: 48px; background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(20px); border-radius: 50%; display: grid; place-items: center; color: var(--text-primary); cursor: pointer; z-index: 998; transition: all 0.3s; text-decoration: none; }
 .floating-download:hover { background: var(--gradient); color: white; border-color: transparent; transform: translateY(-3px); }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; margin-top: 40px; }
+.team-card { text-align: center; padding: 40px 28px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; backdrop-filter: blur(20px); transition: all 0.4s ease; }
+.team-card:hover { transform: translateY(-10px); border-color: rgba(139, 92, 246, 0.4); box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2); }
+.team-avatar { width: 100px; height: 100px; border-radius: 50%; display: grid; place-items: center; color: white; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 2rem; margin: 0 auto 24px; box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4); }
+.team-name { font-size: 1.3rem; margin-bottom: 6px; }
+.team-role { color: var(--accent-1); font-weight: 600; font-size: 0.9rem; margin-bottom: 16px; }
+.team-bio { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px; }
+.team-social { display: flex; justify-content: center; gap: 12px; }
+.team-social a { width: 38px; height: 38px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 10px; display: grid; place-items: center; color: var(--text-secondary); transition: all 0.3s; }
+.team-social a:hover { background: var(--gradient); color: white; border-color: transparent; transform: translateY(-3px); }
+.tech-stack { padding: 100px 0; background: var(--bg-secondary); }
+.tech-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 48px; margin-top: 40px; }
+.tech-logo { display: flex; flex-direction: column; align-items: center; gap: 12px; opacity: 0.7; transition: all 0.3s; }
+.tech-logo:hover { opacity: 1; transform: translateY(-5px); }
+.tech-logo svg { width: 64px; height: 64px; color: var(--text-primary); }
+.tech-logo span { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
 .reveal { opacity: 0; transform: translateY(40px); will-change: opacity, transform; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
 .reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
 @media (max-width: 968px) {
@@ -1304,6 +1320,76 @@ nav a {
           <p style="color: var(--text-secondary);">Te respondemos en menos de 15 minutos.</p>
         </div>
       </form>
+    </div>
+  </div>
+</section>
+
+<section id="equipo">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Nuestro equipo</span>
+      <h2 class="section-title">Conocé a los <span class="gradient-text">expertos detrás de NexusIT</span></h2>
+      <p class="section-subtitle">Profesionales certificados con pasión por la tecnología y el servicio al cliente.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background: linear-gradient(135deg, #3B82F6, #8B5CF6);">CR</div>
+        <h3 class="team-name">Carlos Rodríguez</h3>
+        <p class="team-role">CEO & Fundador</p>
+        <p class="team-bio">Ingeniero en Sistemas con 15+ años de experiencia. Ex-CTO de empresas multinacionales.</p>
+        <div class="team-social">
+          <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background: linear-gradient(135deg, #EC4899, #F59E0B);">LM</div>
+        <h3 class="team-name">Laura Martínez</h3>
+        <p class="team-role">CTO</p>
+        <p class="team-bio">Especialista en ciberseguridad con certificaciones CISSP y CEH. Líder en transformación digital.</p>
+        <div class="team-social">
+          <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background: linear-gradient(135deg, #06B6D4, #10B981);">MG</div>
+        <h3 class="team-name">Martín Gómez</h3>
+        <p class="team-role">Head of Operations</p>
+        <p class="team-bio">Ingeniero Industrial especializado en gestión de servicios IT. Experto en metodologías ágiles.</p>
+        <div class="team-social">
+          <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background: linear-gradient(135deg, #8B5CF6, #EC4899);">AS</div>
+        <h3 class="team-name">Ana Sánchez</h3>
+        <p class="team-role">Lead Developer</p>
+        <p class="team-bio">Full Stack Developer con expertise en Python, IA y automatización. Apasionada por la innovación.</p>
+        <div class="team-social">
+          <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tech-stack">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Tecnologías</span>
+      <h2 class="section-title">Trabajamos con las <span class="gradient-text">mejores tecnologías</span></h2>
+      <p class="section-subtitle">Partners oficiales de las plataformas líderes del mercado.</p>
+    </div>
+    <div class="tech-logos">
+      <div class="tech-logo reveal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>Microsoft</span></div>
+      <div class="tech-logo reveal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg><span>Google Cloud</span></div>
+      <div class="tech-logo reveal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/></svg><span>AWS</span></div>
+      <div class="tech-logo reveal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.964 2C6.383 2 1.872 6.511 1.872 12.092c0 4.477 2.916 8.274 6.955 9.618.508.094.695-.221.695-.49 0-.242-.01-1.048-.014-1.904-2.832.615-3.429-1.203-3.429-1.203-.463-1.178-1.13-1.494-1.13-1.494-.924-.632.07-.62.07-.62 1.022.072 1.561 1.05 1.561 1.05.908 1.557 2.382 1.109 2.96.848.092-.657.355-1.11.644-1.365-2.26-.257-4.635-1.13-4.635-5.015 0-1.108.395-2.017 1.04-2.727-.105-.254-.45-1.28.098-2.668 0 0 .85-.272 2.783 1.037A9.636 9.636 0 0112 6.27c.85.004 1.705.115 2.507.337 1.93-1.31 2.78-1.037 2.78-1.037.55 1.388.204 2.414.1 2.668.647.71 1.038 1.62 1.038 2.727 0 3.896-2.378 4.755-4.643 5.008.36.31.682.92.682 1.855 0 1.338-.012 2.419-.012 2.747 0 .271.186.59.702.489C20.11 20.362 23 16.565 23 12.092 23 6.511 18.489 2 11.964 2z"/></svg><span>GitHub</span></div>
+      <div class="tech-logo reveal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.04 17.264c-.313.451-.693.837-1.128 1.146-.435.31-.927.547-1.464.702-.537.155-1.117.233-1.728.233-.61 0-1.19-.078-1.728-.233-.537-.155-1.029-.392-1.464-.702-.435-.309-.815-.695-1.128-1.146-.313-.451-.547-.965-.702-1.532-.155-.567-.233-1.18-.233-1.828 0-.648.078-1.26.233-1.828.155-.567.389-1.081.702-1.532.313-.451.693-.837 1.128-1.146.435-.31.927-.547 1.464-.702.538-.155 1.118-.233 1.728-.233.611 0 1.191.078 1.728.233.537.155 1.029.392 1.464.702.435.309.815.695 1.128 1.146.313.451.547.965.702 1.532.155.568.233 1.18.233 1.828 0 .648-.078 1.261-.233 1.828-.155.567-.389 1.081-.702 1.532z"/></svg><span>Python</span></div>
+      <div class="tech-logo reveal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.399-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.906-1.294 2.747-1.025 2.747-1.025.546 1.378.203 2.397.1 2.65.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg><span>Docker</span></div>
     </div>
   </div>
 </section>
