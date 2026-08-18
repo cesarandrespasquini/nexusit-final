@@ -245,34 +245,43 @@ footer { position: relative; z-index: 1; padding: 80px 0 30px; border-top: 1px s
 .mobile-menu a { color: var(--text-primary); text-decoration: none; font-weight: 500; padding: 8px 0; display: block; }
 /* Header más grande y centrado */
 header {
-  padding: 20px 0 !important;
+  padding: 16px 0 !important;
 }
 
 .nav-wrap {
-  max-width: 1400px !important;
+  max-width: 100% !important;
   margin: 0 auto !important;
-  padding: 0 40px !important;
-  justify-content: center !important;
-  gap: 40px !important;
+  padding: 0 24px !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
 }
 
 nav ul {
   flex: 1 !important;
   justify-content: center !important;
-  gap: 36px !important;
+  gap: 18px !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+}
+
+nav li {
+  flex-shrink: 0 !important;
 }
 
 nav a {
-  font-size: 1.05rem !important;
-  padding: 8px 4px !important;
+  font-size: 0.85rem !important;
+  padding: 6px 2px !important;
+  white-space: nowrap !important;
 }
 
 .logo {
-  margin-right: auto;
+  margin-right: 16px;
+  flex-shrink: 0 !important;
 }
 
 .nav-right {
-  margin-left: auto;
+  margin-left: 16px;
+  flex-shrink: 0 !important;
 }
 </style>
 </head>
